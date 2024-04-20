@@ -1,0 +1,13 @@
+.images{
+  margin-left: 150px;
+}
+.images img {
+  width: 70px;
+  height: 60px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+body{
+  background-color: rgb(163, 1, 163);
+
+}
