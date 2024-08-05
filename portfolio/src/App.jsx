@@ -2,6 +2,7 @@ import './App.css';
 import Foto from './assets/Foto.jpg';
 import GitHub from './assets/GitHub.png';
 import Linkedin from './assets/Linkedin.jpg';
+import Instagram from './assets/instagram.jpg';
 function App(){
 
     return(
@@ -28,6 +29,7 @@ function App(){
             <div className='image'>
             <img className='git' src={GitHub} alt="GitHub image" /> 
             <img className='linkedin' src={Linkedin} alt="Linkedin image" /> 
+            <img className='instagram' src={Instagram} alt="Instagram image" /> 
             </div>
         </main>
     </body>
