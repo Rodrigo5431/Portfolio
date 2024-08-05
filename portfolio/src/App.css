@@ -1,13 +1,60 @@
-.images{
+
+body{
+  background-color: black;
+
+}
+.aboutMe{
+  color: white;
+}
+
+.foto{
+  display: flex;
+  width: 180px;
+  height: 210px;
+  border-radius: 25%;
+  margin-left: 150px;
+  margin-top: 80px;
+
+}
+h3{
+  color: white;
+  margin-left: 50px;
+}
+h2{
+  color:white;
+  margin-left: 50px;
+}
+h4{
+  color:white;
+  margin-left: 50px;
+}
+h1{
+  font-size: 40px;
+  margin-left: 50px;
+}
+.description{
+  background-color: blue;
+  width: 200px;
+  border-radius: 25px;
   margin-left: 150px;
 }
-.images img {
-  width: 70px;
-  height: 60px;
-  margin-top: 20px;
-  margin-left: 10px;
+main{
+  background-color: rgb(61, 61, 61);
+  width: 55vh;
+  height: 85vh;
+  border-radius: 25px;
+  margin-left: 50px;
 }
-body{
-  background-color: rgb(163, 1, 163);
-
+.git{
+  width: 50px;
+  height: 60px;
+  margin-left: 85px;
+}
+.linkedin{
+  width: 50px;
+  height: 60px;
+  margin-left: 80px;
+}
+.instagram{
+  
 }
