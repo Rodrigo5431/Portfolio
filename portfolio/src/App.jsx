@@ -32,14 +32,14 @@ function App() {
                         </section>
                         <div className='image'>
                             <a href='https://www.linkedin.com/in/rodrigo-carvalho-381522299/'>
-                            <img className='linkedin' src={Linkedin} alt="Linkedin image" />
+                                <img className='linkedin' src={Linkedin} alt="Linkedin image" />
                             </a> 
-                                <a href='https://github.com/Rodrigo5431'>
+                            <a href='https://github.com/Rodrigo5431'>
                                 <img className='git' src={GitHub} alt="GitHub image" />
-                                </a>
+                            </a>
                             <a href='https://www.instagram.com/rodrigo_karvalho/'>
-                            <img className='instagram' src={Instagram} alt="Instagram image" />
-                                </a>
+                                <img className='instagram' src={Instagram} alt="Instagram image" />
+                            </a>
                         </div>
                     </section>
 

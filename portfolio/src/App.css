@@ -9,8 +9,8 @@ body{
 
 .foto{
   display: flex;
-  width: 180px;
-  height: 210px;
+  width: 200px;
+  height: 230px;
   border-radius: 25%;
   margin-left: 150px;
   margin-top: 60px;
@@ -70,7 +70,7 @@ h1{
 
 .rightPart{
   display: flex;
-  justify-content:right;
+
   margin-right: 5vh;
   background-color: rgb(61, 61, 61);
   height: 96vh;
@@ -86,4 +86,7 @@ h1{
   height: 100vh;
   padding: 20px;
   box-sizing: border-box;
+}
+.about{
+display: flex;
 }
