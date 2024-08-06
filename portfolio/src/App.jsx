@@ -45,7 +45,7 @@ function App() {
 
                     <section className='rightPart'>
                         <div className='about'>
-                            <h1>About Me</h1>
+                            <h1 className='sections'>About Me</h1>
                         </div>
                     </section>
                 </div>

@@ -70,13 +70,12 @@ h1{
 
 .rightPart{
   display: flex;
-
-  margin-right: 5vh;
+  margin-right: 10vh;
   background-color: rgb(61, 61, 61);
-  height: 96vh;
-  width: 80vh;
+  height: 80vh;
+  width: 90vh;
   border-radius: 25px;
-  
+  margin-top: 75px;
 }
 .all {
   display: flex;
@@ -89,4 +88,16 @@ h1{
 }
 .about{
 display: flex;
+cursor: pointer;
+width: 19vh;
+height: 7vh;
+background-color: rgb(124, 124, 124);
+margin-left: 35px;
+align-items: baseline;
+
+}
+.sections{
+display: flex;
+color: black;
+font-size: 25px;
 }
