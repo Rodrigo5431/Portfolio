@@ -88,16 +88,46 @@ h1{
 }
 .about{
 display: flex;
-cursor: pointer;
-width: 19vh;
+width: 86vh;
 height: 7vh;
+margin-left: 18px;
+margin-top: 2px;
 background-color: rgb(124, 124, 124);
-margin-left: 35px;
 align-items: baseline;
+border-radius: 15px;
 
 }
-.sections{
+.aboutMe{
 display: flex;
 color: black;
 font-size: 25px;
+background-color: rgb(100, 100, 100);
+width: 15vh;
+cursor: pointer;
+border-radius: 10px;
+}
+.certificates{
+display: flex;
+color: black;
+font-size: 25px;
+background-color: rgb(100, 100, 100);
+cursor: pointer;
+border-radius: 10px;
+}
+.projects{
+display: flex;
+color: black;
+font-size: 25px;
+background-color: rgb(100, 100, 100);
+cursor: pointer;
+border-radius: 10px;
+}
+.experience{
+height: 35px;
+display: flex;
+color: black;
+font-size: 25px;
+background-color: rgb(100, 100, 100);
+cursor: pointer;
+border-radius: 10px;
 }

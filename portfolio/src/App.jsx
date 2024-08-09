@@ -45,7 +45,10 @@ function App() {
 
                     <section className='rightPart'>
                         <div className='about'>
-                            <h1 className='sections'>About Me</h1>
+                            <h1 className='aboutMe'>About Me</h1>
+                            <h1 className='projects'>Projects</h1>
+                            <h1 className='certificates'>Certificates</h1>
+                            <h1 className='experience'>Experience</h1>
                         </div>
                     </section>
                 </div>
