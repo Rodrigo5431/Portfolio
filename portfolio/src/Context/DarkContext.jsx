@@ -3,26 +3,26 @@ import { createContext, useState, useContext, useEffect } from "react";
 export const DarkContext = createContext();
 
 export default function DarkProvider({ children }) {
-  const [darkMode, setDarkMode] = useState(() => {
-    const savedDarkMode = localStorage.getItem("darkMode");
+  const [darkmode, setDarkMode] = useState(() => {
+    const savedDarkMode = localStorage.getItem("darkmode");
     return savedDarkMode === "true"; 
   });
 
 
   useEffect(() => {
-    document.body.style.backgroundColor = darkMode ? "#160529" : "grey"; 
-  }, [darkMode]);
+    document.body.style.backgroundColor = darkmode ? "#160529" : "grey"; 
+  }, [darkmode]);
 
   const toggleDarkMode = () => {
     setDarkMode((prev) => {
       const newDarkMode = !prev;
-      localStorage.setItem("darkMode", newDarkMode); 
+      localStorage.setItem("darkmode", newDarkMode); 
       return newDarkMode;
     });
   };
 
   return (
-    <DarkContext.Provider value={{ darkMode, toggleDarkMode }}>
+    <DarkContext.Provider value={{ darkmode, toggleDarkMode }}>
       {children}
     </DarkContext.Provider>
   );
