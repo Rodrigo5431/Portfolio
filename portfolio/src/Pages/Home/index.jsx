@@ -1,19 +1,36 @@
+import { useContext } from 'react';
 import teste from '../../assets/Carga.jpg';
-import Header from "../../Components/Header";
 import About from "../../Components/About";
-import { Apresentation, Container, ImageMe, MeSection, Title } from "./Home.styles";
+import Header from "../../Components/Header";
+import { Apresentation, ButtonDownload, Container, ImageMe, Title } from "./Home.styles";
+import { AuthContext } from '../../Context/Auth';
 
 export default function () {
+  const [language] = useContext(AuthContext);
+  
   return (
     <Container>
       <Header />
-      <MeSection>
+      {language ? (
         <Apresentation>
-          <Title>Rodrigo <br/>Carvalho Lima</Title>
-          <ImageMe src={teste}></ImageMe>
+          <Title>Rodrigo <br />Carvalho Lima <br />Programador Full Stack<br />
+            <a href="../../archive/Curriculo - Rodrigo Carvalho Lima.pdf" download>
+              <ButtonDownload>Baixar CV</ButtonDownload>
+            </a>
+          </Title>
+          <ImageMe src={teste} />
         </Apresentation>
-      </MeSection>
-      <About/>
+      ) : (
+        <Apresentation>
+          <Title>Rodrigo <br />Carvalho Lima <br />Full Stack Developer <br />
+            <a href="../../archive/Curriculo - Rodrigo Carvalho Lima.docx" download>
+              <ButtonDownload >Download CV</ButtonDownload>
+            </a>
+          </Title>
+          <ImageMe src={teste} />
+        </Apresentation>
+      )}
+      <About />
     </Container>
   );
 }

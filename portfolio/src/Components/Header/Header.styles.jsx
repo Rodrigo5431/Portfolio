@@ -113,7 +113,6 @@ export const MenuLine = styled.div`
 `;
 export const MenuBurguer = styled.div`
   display: flex;
-  /* border-radius: 25px; */
   flex-direction: column;
   align-items: center;
   justify-content: center;

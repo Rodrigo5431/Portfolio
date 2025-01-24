@@ -64,13 +64,13 @@ export default function Header() {
               ></DarkModeSwitch>
               {language ? (
                 <Menu>
-                  <Link style={{ textDecoration: "none" }} to="/projects">
+                  <a style={{ textDecoration: "none", scrollBehavior: "smooth" }} href="#about">
                     <ListComponents
                       darkmode={darkmode ? "dark-mode" : "light-mode"}
                     >
                       Sobre Mim
                     </ListComponents>
-                  </Link>
+                  </a>
                   <Link style={{ textDecoration: "none" }} to="/projects">
                     <ListComponents
                       darkmode={darkmode ? "dark-mode" : "light-mode"}
