@@ -33,7 +33,9 @@ export default function Header() {
   return (
     <Container darkmode={darkmode ? "dark-mode" : "light-mode"}>
       <NavigationSection>
-        <Title darkmode={darkmode}>&lt;Rodrigo/&gt;</Title>
+        <Title darkmode={darkmode ? "dark-mode" : "light-mode"}>
+          &lt;Rodrigo/&gt;
+        </Title>
         <Navigation>
           <ListNavigation>
             <Menu>
@@ -57,24 +59,28 @@ export default function Header() {
                 />
               )}
               <DarkModeSwitch
-                darkmode={darkmode}
+                darkmode={darkmode ? "dark-mode" : "light-mode"}
                 onClick={toggleDarkMode}
               ></DarkModeSwitch>
               {language ? (
                 <Menu>
                   <Link style={{ textDecoration: "none" }} to="/projects">
-                    <ListComponents darkmode={darkmode}>
+                    <ListComponents
+                      darkmode={darkmode ? "dark-mode" : "light-mode"}
+                    >
                       Sobre Mim
                     </ListComponents>
                   </Link>
                   <Link style={{ textDecoration: "none" }} to="/projects">
-                    <ListComponents darkmode={darkmode}>
+                    <ListComponents
+                      darkmode={darkmode ? "dark-mode" : "light-mode"}
+                    >
                       Projetos
                     </ListComponents>
                   </Link>
                   <Link style={{ textDecoration: "none" }} to="/projects">
                     <ListComponents
-                      darkmode={darkmode}
+                      darkmode={darkmode ? "dark-mode" : "light-mode"}
                       style={{ marginRight: "35px" }}
                     >
                       Habilidades
@@ -84,18 +90,22 @@ export default function Header() {
               ) : (
                 <Menu>
                   <Link style={{ textDecoration: "none" }} to="/projects">
-                    <ListComponents darkmode={darkmode}>
+                    <ListComponents
+                      darkmode={darkmode ? "dark-mode" : "light-mode"}
+                    >
                       About Me
                     </ListComponents>
                   </Link>
                   <Link style={{ textDecoration: "none" }} to="/projects">
-                    <ListComponents darkmode={darkmode}>
+                    <ListComponents
+                      darkmode={darkmode ? "dark-mode" : "light-mode"}
+                    >
                       Projects
                     </ListComponents>
                   </Link>
                   <Link style={{ textDecoration: "none" }} to="/projects">
                     <ListComponents
-                      darkmode={darkmode}
+                      darkmode={darkmode ? "dark-mode" : "light-mode"}
                       style={{ marginRight: "35px" }}
                     >
                       Skills
@@ -113,27 +123,104 @@ export default function Header() {
         </Navigation>
       </NavigationSection>
       {hamburguer && (
-        <MenuBurguer darkmode={darkmode}>
-          <div style={{ marginLeft: "25px" }}>
-            {darkmode ? (
-              <FiSun style={{ width: "30px", height: "30px", color: "#fff" }} />
-            ) : (
-              <FiMoon style={{ width: "30px", height: "30px" }} />
-            )}
-            <DarkModeSwitch
-              darkmode={darkmode}
-              onClick={toggleDarkMode}
-            ></DarkModeSwitch>
-          </div>
-          <Link style={{ textDecoration: "none" }} to="/AboutMe">
-            <ListComponents darkmode={darkmode}>About</ListComponents>
-          </Link>
-          <Link style={{ textDecoration: "none" }} to="/projects">
-            <ListComponents darkmode={darkmode}>Projects</ListComponents>
-          </Link>
-          <Link style={{ textDecoration: "none" }} to="/projects">
-            <ListComponents darkmode={darkmode}>Skills</ListComponents>
-          </Link>
+        <MenuBurguer darkmode={darkmode ? "dark-mode" : "light-mode"}>
+          {language ? (
+            <MenuBurguer darkmode={darkmode ? "dark-mode" : "light-mode"}>
+              <div style={{ marginLeft: "25px" }}>
+                {darkmode ? (
+                  <FiSun
+                    style={{ width: "30px", height: "30px", color: "#fff" }}
+                  />
+                ) : (
+                  <FiMoon style={{ width: "30px", height: "30px" }} />
+                )}
+                <DarkModeSwitch
+                  darkmode={darkmode ? "dark-mode" : "light-mode"}
+                  onClick={toggleDarkMode}
+                ></DarkModeSwitch>
+                <Flag
+                  src={brasil}
+                  onClick={() => setLanguage(true)}
+                  style={{ opacity: language ? 1 : 0.5, cursor: "pointer" }}
+                />
+                <Flag
+                  src={eua}
+                  onClick={() => setLanguage(false)}
+                  style={{ opacity: !language ? 1 : 0.5, cursor: "pointer" }}
+                />
+              </div>
+
+              <Link style={{ textDecoration: "none" }} to="/AboutMe">
+                <ListComponents
+                  darkmode={darkmode ? "dark-mode" : "light-mode"}
+                >
+                  Sobre Mim
+                </ListComponents>
+              </Link>
+              <Link style={{ textDecoration: "none" }} to="/projects">
+                <ListComponents
+                  darkmode={darkmode ? "dark-mode" : "light-mode"}
+                >
+                  Projetos
+                </ListComponents>
+              </Link>
+              <Link style={{ textDecoration: "none" }} to="/projects">
+                <ListComponents
+                  darkmode={darkmode ? "dark-mode" : "light-mode"}
+                >
+                  Habilidades
+                </ListComponents>
+              </Link>
+            </MenuBurguer>
+          ) : (
+            <MenuBurguer darkmode={darkmode ? "dark-mode" : "light-mode"}>
+              <div style={{ marginLeft: "25px" }}>
+                {darkmode ? (
+                  <FiSun
+                    style={{ width: "30px", height: "30px", color: "#fff" }}
+                  />
+                ) : (
+                  <FiMoon style={{ width: "30px", height: "30px" }} />
+                )}
+                <DarkModeSwitch
+                  darkmode={darkmode ? "dark-mode" : "light-mode"}
+                  onClick={toggleDarkMode}
+                ></DarkModeSwitch>
+                <Flag
+                  src={brasil}
+                  onClick={() => setLanguage(true)}
+                  style={{ opacity: language ? 1 : 0.5, cursor: "pointer" }}
+                />
+                <Flag
+                  src={eua}
+                  onClick={() => setLanguage(false)}
+                  style={{ opacity: !language ? 1 : 0.5, cursor: "pointer" }}
+                />
+              </div>
+
+              <Link style={{ textDecoration: "none" }} to="/AboutMe">
+                <ListComponents
+                  darkmode={darkmode ? "dark-mode" : "light-mode"}
+                >
+                  About
+                </ListComponents>
+              </Link>
+              <Link style={{ textDecoration: "none" }} to="/projects">
+                <ListComponents
+                  darkmode={darkmode ? "dark-mode" : "light-mode"}
+                >
+                  Projects
+                </ListComponents>
+              </Link>
+              <Link style={{ textDecoration: "none" }} to="/projects">
+                <ListComponents
+                  darkmode={darkmode ? "dark-mode" : "light-mode"}
+                >
+                  Skills
+                </ListComponents>
+              </Link>
+            </MenuBurguer>
+          )}
         </MenuBurguer>
       )}
     </Container>
