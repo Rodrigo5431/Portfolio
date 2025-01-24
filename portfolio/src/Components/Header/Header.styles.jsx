@@ -10,22 +10,22 @@ export const Container = styled.header`
   transition: background-color 0.3s ease, color 0.3s ease;
 `;
 export const NavigationSection = styled.nav`
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-width: 100%;
-`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+`;
 
 export const Title = styled.h1`
-  font-size: 3.0em;
+  font-size: 3em;
   color: ${({ darkmode }) => (darkmode ? "#fff" : "#333")};
   transition: color 0.8s ease;
   margin-left: 15px;
 `;
 
 export const Navigation = styled.nav`
-display: flex;
-flex-direction: row;
+  display: flex;
+  flex-direction: row;
 `;
 
 export const ListNavigation = styled.ul`
@@ -37,28 +37,32 @@ export const ListNavigation = styled.ul`
   gap: 5px;
 `;
 export const ListComponents = styled.li`
-  font-size: 2.0em;
+  font-size: 2em;
   font-weight: 600;
   color: ${({ darkmode }) => (darkmode ? "#fff" : "#333")};
   transition: color 0.8s ease;
   cursor: pointer;
   margin-left: 25px;
+
+  @media(max-width: 1000px){
+    font-size: 1.2rem;
+  }
 `;
 
 export const Flag = styled.img`
-width: 27px;
-height: 27px;
-margin-right: 15px;
-cursor: pointer;
-  `
-
+  width: 27px;
+  height: 27px;
+  margin-right: 15px;
+  cursor: pointer;
+`;
 
 export const DarkModeSwitch = styled.label`
   position: relative;
   display: inline-block;
   width: 50px;
   height: 25px;
-  background-color: ${({ darkmode }) => (darkmode ? "#444" : "#ccc")};
+  background-color: ${({ darkmode }) =>
+    darkmode === "dark-mode" ? "#444" : "#ccc"}; 
   border-radius: 50px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -75,7 +79,10 @@ export const DarkModeSwitch = styled.label`
     background-color: white;
     border-radius: 50%;
     transition: transform 0.3s ease;
-    transform: ${({ darkmode }) => (darkmode ? "translateX(25px)" : "translateX(0)")};
+    transform: ${({ darkmode }) =>
+      darkmode === "dark-mode"
+        ? "translateX(25px)"
+        : "translateX(0)"};
   }
 `;
 export const Menu = styled.div`
@@ -84,43 +91,38 @@ export const Menu = styled.div`
   align-items: center;
   transition: transform 0.3s ease-in-out;
 
-
-  @media(max-width:800px){ 
-     display: none;
+  @media (max-width: 800px) {
+    display: none;
   }
-
-
 `;
 
 export const MenuIcon = styled.div`
   display: none;
-  @media(max-width:799px){
+  @media (max-width: 799px) {
     display: flex;
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
     margin-right: 10px;
-
   }
-`
+`;
 export const MenuLine = styled.div`
-    width: 40px;
-    height: 5px;
-    background-color: white;
-
-`
+  width: 40px;
+  height: 5px;
+  background-color: white;
+`;
 export const MenuBurguer = styled.div`
   display: flex;
-  border-radius: 25px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   list-style: none;
   width: 105%;
-  background-color: #210c39;
   height: 200px;
   gap: 20px;
-  @media(min-width: 800px){
+  transition: background-color 0.3s ease, color 0.3s ease;
+  
+  @media (min-width: 800px) {
     display: none;
   }
-`
+`;
