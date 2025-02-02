@@ -44,8 +44,8 @@ export const Apresentation = styled.div`
 export const ImageMe = styled.img`
   width: 500px;
   height: 500px;
-  margin-right:15%;
   border-radius: 50px;
+  margin-right: 150px;
 
   @media (max-width: 1400px) {
     margin-left:50px ;
