@@ -1,0 +1,90 @@
+import { motion } from "framer-motion";
+import { useContext } from 'react';
+import rodrigo from '../../assets/rodrigo.jpg';
+import Header from "../../Components/Header";
+import Line from '../../Components/Line';
+import Technologies from '../../Components/Technologies';
+import About from '../../Components/About';
+import Projects from '../../Components/Projects';
+import { AuthContext } from '../../Context/Auth';
+import { Apresentation, ButtonDownload, Container, ImageMe, Title } from "./Home.styles";
+
+export default function Home() {
+  const [language] = useContext(AuthContext);
+
+  return (
+    <Container>
+      <Header />
+      <motion.div 
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        {language ? (
+          <Apresentation>
+            <motion.div 
+              initial={{ opacity: 0, x: -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+            >
+              <Title>
+                Rodrigo <br />Carvalho Lima <br />Programador Full Stack<br />
+                <a href="../../archive/Curriculo - Rodrigo Carvalho Lima.pdf" download>
+                  <ButtonDownload>Baixar CV</ButtonDownload>
+                </a>
+              </Title>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+            >
+              <ImageMe src={rodrigo} />
+            </motion.div>
+          </Apresentation>
+        ) : (
+          <Apresentation>
+            <motion.div
+              initial={{ opacity: 0, x: -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+            >
+              <Title>
+                Rodrigo <br />Carvalho Lima <br />Full Stack Developer <br />
+                <a href="../../archive/Curriculo - Rodrigo Carvalho Lima.docx" download>
+                  <ButtonDownload>Download CV</ButtonDownload>
+                </a>
+              </Title>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+            >
+              <ImageMe src={rodrigo} />
+            </motion.div>
+          </Apresentation>
+        )}
+      </motion.div>
+        <Line />
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 2 }}
+        viewport={{ once: true }}
+      >
+        <Technologies />
+      </motion.div>
+      <Line/>
+      <Projects/>
+      <Line/>
+      <About/>
+    </Container>
+  );
+}
