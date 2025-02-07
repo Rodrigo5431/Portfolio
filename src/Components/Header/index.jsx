@@ -64,53 +64,83 @@ export default function Header() {
               ></DarkModeSwitch>
               {language ? (
                 <Menu>
-                  <a style={{ textDecoration: "none", scrollBehavior: "smooth" }} href="#about">
+                  <div
+                    onClick={() => {
+                      const aboutSection = document.getElementById("about");
+                      aboutSection.scrollIntoView({ behavior: "smooth" });
+                    }}
+                  >
                     <ListComponents
                       darkmode={darkmode ? "dark-mode" : "light-mode"}
                     >
                       Sobre Mim
                     </ListComponents>
-                  </a>
-                  <Link style={{ textDecoration: "none" }} to="/projects">
+                  </div>
+                  <div
+                    onClick={() => {
+                      const aboutSection = document.getElementById("projects");
+                      aboutSection.scrollIntoView({ behavior: "smooth" });
+                    }}
+                  >
                     <ListComponents
                       darkmode={darkmode ? "dark-mode" : "light-mode"}
                     >
                       Projetos
                     </ListComponents>
-                  </Link>
-                  <Link style={{ textDecoration: "none" }} to="/projects">
+                  </div>
+                  <div
+                    onClick={() => {
+                      const aboutSection = document.getElementById("skills");
+                      aboutSection.scrollIntoView({ behavior: "smooth" });
+                    }}
+                  >
                     <ListComponents
                       darkmode={darkmode ? "dark-mode" : "light-mode"}
                       style={{ marginRight: "35px" }}
                     >
                       Habilidades
                     </ListComponents>
-                  </Link>
+                  </div>
                 </Menu>
               ) : (
                 <Menu>
-                  <Link style={{ textDecoration: "none" }} to="/projects">
+                  <div
+                    onClick={() => {
+                      const aboutSection = document.getElementById("about");
+                      aboutSection.scrollIntoView({ behavior: "smooth" });
+                    }}
+                  >
                     <ListComponents
                       darkmode={darkmode ? "dark-mode" : "light-mode"}
                     >
                       About Me
                     </ListComponents>
-                  </Link>
-                  <Link style={{ textDecoration: "none" }} to="/projects">
+                  </div>
+                  <div
+                  onClick={() => {
+                    const aboutSection = document.getElementById("projects");
+                      aboutSection.scrollIntoView({ behavior: "smooth" });
+                  }}
+                >
                     <ListComponents
                       darkmode={darkmode ? "dark-mode" : "light-mode"}
                     >
                       Projects
                     </ListComponents>
-                  </Link>
-                  <Link style={{ textDecoration: "none" }} to="/projects">
+                  </div>
+                  <div 
+                  onClick={() => {
+                    const aboutSection = document.getElementById("skills");
+                      aboutSection.scrollIntoView({ behavior: "smooth" });
+                  }}
+                >
                     <ListComponents
                       darkmode={darkmode ? "dark-mode" : "light-mode"}
                       style={{ marginRight: "35px" }}
                     >
                       Skills
                     </ListComponents>
-                  </Link>
+                  </div>
                 </Menu>
               )}
             </Menu>
