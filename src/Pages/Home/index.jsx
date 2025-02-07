@@ -4,6 +4,8 @@ import rodrigo from '../../assets/rodrigo.jpg';
 import Header from "../../Components/Header";
 import Line from '../../Components/Line';
 import Technologies from '../../Components/Technologies';
+import About from '../../Components/About';
+import Projects from '../../Components/Projects';
 import { AuthContext } from '../../Context/Auth';
 import { Apresentation, ButtonDownload, Container, ImageMe, Title } from "./Home.styles";
 
@@ -79,6 +81,10 @@ export default function Home() {
       >
         <Technologies />
       </motion.div>
+      <Line/>
+      <Projects/>
+      <Line/>
+      <About/>
     </Container>
   );
 }
