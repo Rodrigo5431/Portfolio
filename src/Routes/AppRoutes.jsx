@@ -3,7 +3,7 @@
   import DarkProvider from "../Context/DarkContext";
   import Home from "../Pages/Home/index";
   import Login from "../Pages/Login";
-  import Projects from "../Pages/Projects";
+  import ProjectDetails from "../Pages/ProjectDetails";
 
   export default function AppRoutes() {
     return (
@@ -12,7 +12,7 @@
           <DarkProvider>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/projects" element={<Projects />} />
+              <Route path="/project/:id" element={<ProjectDetails />} />
               <Route path="/login" element={<Login />} />
             </Routes>
           </DarkProvider>
