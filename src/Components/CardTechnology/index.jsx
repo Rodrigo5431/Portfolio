@@ -1,4 +1,4 @@
-import { Container, Title, TechnologyList, TechnologyItem, Separation } from "./Card.styles";
+import { Container, Title, TechnologyList, TechnologyItem, Separation } from "./CardTechnology.styles";
 
 export default function Card({ title, languages = [] }) { 
     return (

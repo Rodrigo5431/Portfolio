@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { FiMoon, FiSun } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDarkMode } from "../../Context/DarkContext";
 import "./Header.module.css";
 import brasil from "../../assets/brasil.png";
@@ -25,6 +25,20 @@ export default function Header() {
   const { darkmode, toggleDarkMode } = useDarkMode();
   const [hamburguer, setHamburguer] = useState(false);
   const [language, setLanguage] = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLocateChange = (locate) => {
+    if (location.pathname === "/") {
+      const section = document.getElementById(locate);
+      section.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        const section = document.getElementById(locate);
+        section.scrollIntoView({ behavior: "smooth" });
+      }, 1000);
+    }
+  };
 
   useEffect(() => {
     localStorage.setItem("language", language);
@@ -64,36 +78,7 @@ export default function Header() {
               ></DarkModeSwitch>
               {language ? (
                 <Menu>
-                  <div
-                    onClick={() => {
-                      const aboutSection = document.getElementById("about");
-                      aboutSection.scrollIntoView({ behavior: "smooth" });
-                    }}
-                  >
-                    <ListComponents
-                      darkmode={darkmode ? "dark-mode" : "light-mode"}
-                    >
-                      Sobre Mim
-                    </ListComponents>
-                  </div>
-                  <div
-                    onClick={() => {
-                      const aboutSection = document.getElementById("projects");
-                      aboutSection.scrollIntoView({ behavior: "smooth" });
-                    }}
-                  >
-                    <ListComponents
-                      darkmode={darkmode ? "dark-mode" : "light-mode"}
-                    >
-                      Projetos
-                    </ListComponents>
-                  </div>
-                  <div
-                    onClick={() => {
-                      const aboutSection = document.getElementById("skills");
-                      aboutSection.scrollIntoView({ behavior: "smooth" });
-                    }}
-                  >
+                  <div onClick={() => handleLocateChange("skills")}>
                     <ListComponents
                       darkmode={darkmode ? "dark-mode" : "light-mode"}
                       style={{ marginRight: "35px" }}
@@ -101,44 +86,43 @@ export default function Header() {
                       Habilidades
                     </ListComponents>
                   </div>
-                </Menu>
-              ) : (
-                <Menu>
-                  <div
-                    onClick={() => {
-                      const aboutSection = document.getElementById("about");
-                      aboutSection.scrollIntoView({ behavior: "smooth" });
-                    }}
-                  >
+                  <div onClick={() => handleLocateChange("projects")}>
                     <ListComponents
                       darkmode={darkmode ? "dark-mode" : "light-mode"}
                     >
-                      About Me
+                      Projetos
                     </ListComponents>
                   </div>
-                  <div
-                  onClick={() => {
-                    const aboutSection = document.getElementById("projects");
-                      aboutSection.scrollIntoView({ behavior: "smooth" });
-                  }}
-                >
+                  <div onClick={() => handleLocateChange("about")}>
+                    <ListComponents
+                      darkmode={darkmode ? "dark-mode" : "light-mode"}
+                    >
+                      Sobre Mim
+                    </ListComponents>
+                  </div>
+                </Menu>
+              ) : (
+                <Menu>
+                  <div onClick={() => handleLocateChange("skills")}>
+                    <ListComponents
+                      darkmode={darkmode ? "dark-mode" : "light-mode"}
+                      style={{ marginRight: "35px" }}
+                    >
+                      Skills
+                    </ListComponents>
+                  </div>
+                  <div onClick={() => handleLocateChange("projects")}>
                     <ListComponents
                       darkmode={darkmode ? "dark-mode" : "light-mode"}
                     >
                       Projects
                     </ListComponents>
                   </div>
-                  <div 
-                  onClick={() => {
-                    const aboutSection = document.getElementById("skills");
-                      aboutSection.scrollIntoView({ behavior: "smooth" });
-                  }}
-                >
+                  <div onClick={() => handleLocateChange("about")}>
                     <ListComponents
                       darkmode={darkmode ? "dark-mode" : "light-mode"}
-                      style={{ marginRight: "35px" }}
                     >
-                      Skills
+                      About Me
                     </ListComponents>
                   </div>
                 </Menu>
@@ -179,28 +163,27 @@ export default function Header() {
                   style={{ opacity: !language ? 1 : 0.5, cursor: "pointer" }}
                 />
               </div>
-
-              <Link style={{ textDecoration: "none" }} to="/AboutMe">
+              <div onClick={() => handleLocateChange("skills")}>
                 <ListComponents
                   darkmode={darkmode ? "dark-mode" : "light-mode"}
                 >
-                  Sobre Mim
+                  Hablidades
                 </ListComponents>
-              </Link>
-              <Link style={{ textDecoration: "none" }} to="/projects">
+              </div>
+              <div onClick={() => handleLocateChange("projects")}>
                 <ListComponents
                   darkmode={darkmode ? "dark-mode" : "light-mode"}
                 >
                   Projetos
                 </ListComponents>
-              </Link>
-              <Link style={{ textDecoration: "none" }} to="/projects">
+              </div>
+              <div onClick={() => handleLocateChange("about")}>
                 <ListComponents
                   darkmode={darkmode ? "dark-mode" : "light-mode"}
                 >
-                  Habilidades
+                  Sobre Mim
                 </ListComponents>
-              </Link>
+              </div>
             </MenuBurguer>
           ) : (
             <MenuBurguer darkmode={darkmode ? "dark-mode" : "light-mode"}>
@@ -228,27 +211,27 @@ export default function Header() {
                 />
               </div>
 
-              <Link style={{ textDecoration: "none" }} to="/AboutMe">
-                <ListComponents
-                  darkmode={darkmode ? "dark-mode" : "light-mode"}
-                >
-                  About
-                </ListComponents>
-              </Link>
-              <Link style={{ textDecoration: "none" }} to="/projects">
-                <ListComponents
-                  darkmode={darkmode ? "dark-mode" : "light-mode"}
-                >
-                  Projects
-                </ListComponents>
-              </Link>
-              <Link style={{ textDecoration: "none" }} to="/projects">
+              <div onClick={() => handleLocateChange("skills")}>
                 <ListComponents
                   darkmode={darkmode ? "dark-mode" : "light-mode"}
                 >
                   Skills
                 </ListComponents>
-              </Link>
+              </div>
+              <div onClick={() => handleLocateChange("projects")}>
+                <ListComponents
+                  darkmode={darkmode ? "dark-mode" : "light-mode"}
+                >
+                  Projects
+                </ListComponents>
+              </div>
+              <div onClick={() => handleLocateChange("about")}>
+                <ListComponents
+                  darkmode={darkmode ? "dark-mode" : "light-mode"}
+                >
+                  About Me
+                </ListComponents>
+              </div>
             </MenuBurguer>
           )}
         </MenuBurguer>

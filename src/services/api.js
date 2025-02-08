@@ -24,3 +24,27 @@ export const login = async (email, password) => {
   }
 
 };
+export const handlePosts = async () => {
+
+  try {
+    const response = await api.get(`/projects`);
+    if (response.status == 200) {
+      return response.data;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+export const handleImagePosts = async (post) => {
+
+  try {
+    const response = await api.get(`/projects/photo/${post.id}`);
+    if (response.status == 200) {
+      console.log(`resposta${response.data}`);
+      
+      return response.data;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
