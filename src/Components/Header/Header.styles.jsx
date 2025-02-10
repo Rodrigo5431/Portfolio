@@ -8,7 +8,11 @@ export const Container = styled.header`
   width: 97%;
   padding: 10px 20px;
   transition: background-color 0.3s ease, color 0.3s ease;
+  @media (max-width: 500px) {
+    padding: 0;
+  }
 `;
+
 export const NavigationSection = styled.nav`
   display: flex;
   flex-direction: row;
@@ -18,9 +22,13 @@ export const NavigationSection = styled.nav`
 
 export const Title = styled.h1`
   font-size: 3em;
-  color: ${({ darkmode }) => (darkmode ? "#fff" : "#333")};
+  color: ${({ darkmode }) => (darkmode == "dark-mode" ? "#fff" : "#000")};
   transition: color 0.8s ease;
   margin-left: 15px;
+
+  @media (max-width:1000px) {
+    font-size: 2rem;
+  }
 `;
 
 export const Navigation = styled.nav`
@@ -39,12 +47,12 @@ export const ListNavigation = styled.ul`
 export const ListComponents = styled.li`
   font-size: 2em;
   font-weight: 600;
-  color: ${({ darkmode }) => (darkmode ? "#fff" : "#333")};
+  color: ${({ darkmode }) => (darkmode === "dark-mode" ? "#fff" : "#333")};
   transition: color 0.8s ease;
   cursor: pointer;
   margin-left: 25px;
 
-  @media(max-width: 1000px){
+  @media (max-width: 1000px) {
     font-size: 1.2rem;
   }
 `;
@@ -61,8 +69,7 @@ export const DarkModeSwitch = styled.label`
   display: inline-block;
   width: 50px;
   height: 25px;
-  background-color: ${({ darkmode }) =>
-    darkmode === "dark-mode" ? "#444" : "#ccc"}; 
+  background-color: ${({ darkmode }) => darkmode === "dark-mode" ? "#444" : "#ccc"};
   border-radius: 50px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -79,10 +86,7 @@ export const DarkModeSwitch = styled.label`
     background-color: white;
     border-radius: 50%;
     transition: transform 0.3s ease;
-    transform: ${({ darkmode }) =>
-      darkmode === "dark-mode"
-        ? "translateX(25px)"
-        : "translateX(0)"};
+    transform: ${({ darkmode }) => darkmode === "dark-mode" ? "translateX(25px)" : "translateX(0)"};
   }
 `;
 export const Menu = styled.div`
@@ -121,7 +125,7 @@ export const MenuBurguer = styled.div`
   height: 200px;
   gap: 20px;
   transition: background-color 0.3s ease, color 0.3s ease;
-  
+
   @media (min-width: 800px) {
     display: none;
   }

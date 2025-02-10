@@ -7,10 +7,12 @@ import Technologies from '../../Components/Technologies';
 import About from '../../Components/About';
 import Projects from '../../Components/Projects';
 import { AuthContext } from '../../Context/Auth';
-import { Apresentation, ButtonDownload, Container, ImageMe, Title } from "./Home.styles";
+import { Apresentation, ButtonDownload, Container, ImageMe, LinkDownload, Title } from "./Home.styles";
+import { DarkContext, useDarkMode } from "../../Context/DarkContext";
 
 export default function Home() {
   const [language] = useContext(AuthContext);
+  const {darkmode} = useDarkMode();
 
   return (
     <Container>
@@ -28,11 +30,11 @@ export default function Home() {
               transition={{ duration: 1 }}
               viewport={{ once: true }}
             >
-              <Title>
+              <Title darkmode={darkmode ? "dark-mode": "light-mode"}>
                 Rodrigo <br />Carvalho Lima <br />Programador Full Stack<br />
-                <a href="../../archive/Curriculo - Rodrigo Carvalho Lima.pdf" download>
-                  <ButtonDownload>Baixar CV</ButtonDownload>
-                </a>
+                <LinkDownload href="../../archive/Curriculo - Rodrigo Carvalho Lima.pdf" download>
+                  <ButtonDownload darkmode={darkmode ? "dark-mode" :"light-mode"}>Baixar CV</ButtonDownload>
+                </LinkDownload>
               </Title>
             </motion.div>
 
@@ -53,11 +55,11 @@ export default function Home() {
               transition={{ duration: 1 }}
               viewport={{ once: true }}
             >
-              <Title>
+              <Title darkmode={darkmode ? "dark-mode": "light-mode"}>
                 Rodrigo <br />Carvalho Lima <br />Full Stack Developer <br />
-                <a href="../../archive/Curriculo - Rodrigo Carvalho Lima.docx" download>
-                  <ButtonDownload>Download CV</ButtonDownload>
-                </a>
+                <LinkDownload href="../../archive/Curriculo - Rodrigo Carvalho Lima.docx" download>
+                  <ButtonDownload darkmode={darkmode ? "dark-mode": "light-mode"}>Download CV</ButtonDownload>
+                </LinkDownload>
               </Title>
             </motion.div>
 
@@ -72,19 +74,38 @@ export default function Home() {
           </Apresentation>
         )}
       </motion.div>
-        <Line />
+      <Line />
+
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 2 }}
+        transition={{ duration: 1 }}
         viewport={{ once: true }}
       >
         <Technologies />
       </motion.div>
-      <Line/>
-      <Projects/>
-      <Line/>
-      <About/>
+
+      <Line />
+
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+      >
+        <Projects />
+      </motion.div>
+
+      <Line />
+
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+      >
+        <About />
+      </motion.div>
     </Container>
   );
 }

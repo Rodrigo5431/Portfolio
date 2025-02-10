@@ -11,7 +11,7 @@ export const Container = styled.main`
 export const ProjectInformations = styled.section`
   display: flex;
   flex-direction: row;
-  background-color: #220840;
+  background-color: #082836;
   width: 90%;
   max-width: 1100px;
   height: auto;
@@ -89,7 +89,10 @@ export const TechnologiesArea = styled.div`
 `;
 
 export const TitleTechnology = styled.h2`
-  background-color: #7d55c7;
+  background-image: ${({ darkmode }) =>
+    darkmode === "dark-mode"
+      ? "linear-gradient(135deg, #804ba8, #b53ed3)"
+      : "linear-gradient(135deg, #ff7f50, #ff4500)"};
   border-radius: 12px;
   padding: 12px 24px;
   color: white;
@@ -97,6 +100,20 @@ export const TitleTechnology = styled.h2`
   text-align: center;
   font-weight: bold;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-image: ${({ darkmode }) =>
+      darkmode === "dark-mode"
+        ? "linear-gradient(135deg, #7b2a8f, #4b2c63)"
+        : "linear-gradient(135deg, #ff4500, #ff7f50)"};
+
+    box-shadow: ${({ darkmode }) =>
+      darkmode === "dark-mode"
+        ? "0 6px 12px rgba(50, 50, 50, 0.5), 0 0 20px rgba(96, 33, 112, 0.8)"
+        : "0 6px 12px rgba(255, 69, 0, 0.6), 0 0 20px rgba(255, 140, 0, 0.8)"};
+    transform: scale(1.05);
+  }
 `;
 
 export const Technologies = styled.div`
@@ -116,6 +133,12 @@ export const TechnologyItem = styled.p`
   background: rgba(255, 255, 255, 0.1);
   padding: 8px 15px;
   border-radius: 8px;
+  transition: background 0.3s, transform 0.2s;
+
+  &:hover {
+    background-color: #222;
+    transform: translateY(-3px);
+  }
 `;
 
 export const LinksArea = styled.div`

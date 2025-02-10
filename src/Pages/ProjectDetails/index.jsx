@@ -22,12 +22,13 @@ import {
   TitleTechnology,
 } from "./ProjectDetails.styles";
 import { AuthContext } from "../../Context/Auth";
+import { useDarkMode } from "../../Context/DarkContext";
 
 export default function ProjectDetails() {
-  const { id } = useParams();
   const location = useLocation();
   const [project, setProject] = useState(location.state.project || {});
   const [ language ] = useContext(AuthContext);
+  const {darkmode} = useDarkMode();
 
   const techIcons = {
     Java: <FaJava size={20} color="#f89820" />,
@@ -49,14 +50,14 @@ export default function ProjectDetails() {
       <ProjectInformations>
         <ImageProject src={project.image} alt={project.title} />
         <InformationsArea>
-          <TitleProject>{project.title}</TitleProject>
+          <TitleProject darkmode={darkmode?"dark-mode":"light-mode"}>{project.title}</TitleProject>
           <Description>{project.description}</Description>
 
           <TechnologiesArea>
             {language ? (
-              <TitleTechnology>Tecnologias Usadas</TitleTechnology>
+              <TitleTechnology darkmode={darkmode?"dark-mode":"light-mode"}>Tecnologias Usadas</TitleTechnology>
             ) : (
-              <TitleTechnology>Technologies Used</TitleTechnology>
+              <TitleTechnology darkmode={darkmode?"dark-mode":"light-mode"}>Technologies Used</TitleTechnology>
             )}
 
             <Technologies>
