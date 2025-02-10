@@ -9,7 +9,7 @@ export const Container = styled.main`
 `;
 export const Title = styled.h1`
   color: ${({ darkmode }) =>
-    darkmode === "dark-mode" ? "#926ac1" : "#ff4500"};
+    darkmode === "dark-mode" ? "#8d52d0" : "#ff4500"};
   font-size: 4rem;
 `;
 export const History = styled.h2`

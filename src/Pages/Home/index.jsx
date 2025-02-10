@@ -55,10 +55,10 @@ export default function Home() {
               transition={{ duration: 1 }}
               viewport={{ once: true }}
             >
-              <Title>
+              <Title darkmode={darkmode ? "dark-mode": "light-mode"}>
                 Rodrigo <br />Carvalho Lima <br />Full Stack Developer <br />
                 <LinkDownload href="../../archive/Curriculo - Rodrigo Carvalho Lima.docx" download>
-                  <ButtonDownload>Download CV</ButtonDownload>
+                  <ButtonDownload darkmode={darkmode ? "dark-mode": "light-mode"}>Download CV</ButtonDownload>
                 </LinkDownload>
               </Title>
             </motion.div>
@@ -74,19 +74,38 @@ export default function Home() {
           </Apresentation>
         )}
       </motion.div>
-        <Line />
+      <Line />
+
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 2 }}
+        transition={{ duration: 1 }}
         viewport={{ once: true }}
       >
         <Technologies />
       </motion.div>
-      <Line/>
-      <Projects/>
-      <Line/>
-      <About/>
+
+      <Line />
+
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+      >
+        <Projects />
+      </motion.div>
+
+      <Line />
+
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+      >
+        <About />
+      </motion.div>
     </Container>
   );
 }

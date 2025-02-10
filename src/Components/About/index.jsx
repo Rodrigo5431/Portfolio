@@ -13,7 +13,7 @@ export default function About() {
       {language ? (
         <AboutMe>
           <Title darkmode={darkmode?"dark-mode":"light-mode"} id="about">Quem Sou Eu ?</Title>
-          <History>
+          <History darkmode={darkmode ? "dark-mode": "light-mode"}>
             Sou um Desenvolvedor Full Stack e atualmente estou estudando para me
             tornar Engenheiro de Software. <br /><br />Minha jornada na educação e na
             tecnologia tem sido intensa. Em 2019, ingressei
@@ -27,8 +27,8 @@ export default function About() {
         </AboutMe>
       ) : (
         <AboutMe>
-          <Title id="about">Who am I ?</Title>
-          <History>
+          <Title darkmode={darkmode ? "dark-mode": "light-mode"} id="about">Who am I ?</Title>
+          <History darkmode={darkmode ? "dark-mode": "light-mode"}>
             I'm a Full Stack Developer currently studying to become a Software
             Engineer. <br /><br />My journey in education and technology has been extensive.
             In 2019, I enrolled at Brasas English Course to learn English, and

@@ -81,7 +81,6 @@ export default function Header() {
                   <div onClick={() => handleLocateChange("skills")}>
                     <ListComponents
                       darkmode={darkmode ? "dark-mode" : "light-mode"}
-                      style={{ marginRight: "35px" }}
                     >
                       Habilidades
                     </ListComponents>
@@ -106,7 +105,6 @@ export default function Header() {
                   <div onClick={() => handleLocateChange("skills")}>
                     <ListComponents
                       darkmode={darkmode ? "dark-mode" : "light-mode"}
-                      style={{ marginRight: "35px" }}
                     >
                       Skills
                     </ListComponents>
