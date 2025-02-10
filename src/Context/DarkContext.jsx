@@ -10,7 +10,7 @@ export default function DarkProvider({ children }) {
 
 
   useEffect(() => {
-    document.body.style.backgroundColor = darkmode ? "#160529" : "grey"; 
+    document.body.style.backgroundColor = darkmode ? "#121212" : "#e8e8e8"; 
   }, [darkmode]);
 
   const toggleDarkMode = () => {

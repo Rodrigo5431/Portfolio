@@ -10,21 +10,21 @@ align-items: center;
 gap: 50px;
 `
 export const Title = styled.h1`
-color: #926ac1;
-font-size: 3rem;
+color: ${({ darkmode }) => (darkmode === "dark-mode" ? "#926ac1" : "#ff4500")};
+font-size: 4rem;
 `
 export const ProjectList = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 colunas */
-  gap: 20px; /* Espaçamento entre os itens */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px; 
   justify-content: center;
   
   @media (max-width: 1024px) {
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas médias */
+    grid-template-columns: repeat(2, 1fr); 
   }
 
   @media (max-width: 768px) {
-    grid-template-columns: repeat(1, 1fr); /* 1 coluna no mobile */
+    grid-template-columns: repeat(1, 1fr);
   }
 `;
 export const Error = styled.h2`

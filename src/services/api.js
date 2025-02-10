@@ -32,7 +32,6 @@ export const handlePosts = async () => {
       return response.data;
     }
   } catch (error) {
-    console.error(error);
   }
 };
 export const handleImagePosts = async (post) => {

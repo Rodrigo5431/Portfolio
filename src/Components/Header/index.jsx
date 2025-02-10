@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { FiMoon, FiSun } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import { useDarkMode } from "../../Context/DarkContext";
-import "./Header.module.css";
+// import "./Header.module.css";
 import brasil from "../../assets/brasil.png";
 import eua from "../../assets/estadosUnidos.png";
 import {
@@ -45,7 +45,7 @@ export default function Header() {
   }, [language]);
 
   return (
-    <Container darkmode={darkmode ? "dark-mode" : "light-mode"}>
+    <Container >
       <NavigationSection>
         <Title darkmode={darkmode ? "dark-mode" : "light-mode"}>
           &lt;Rodrigo/&gt;
@@ -69,7 +69,7 @@ export default function Header() {
                 />
               ) : (
                 <FiSun
-                  style={{ width: "30px", height: "30px", color: "#fff" }}
+                  style={{color: darkmode? "black" : "black", width: "30px", height: "30px" }}
                 />
               )}
               <DarkModeSwitch

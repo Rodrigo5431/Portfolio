@@ -7,10 +7,12 @@ import Technologies from '../../Components/Technologies';
 import About from '../../Components/About';
 import Projects from '../../Components/Projects';
 import { AuthContext } from '../../Context/Auth';
-import { Apresentation, ButtonDownload, Container, ImageMe, Title } from "./Home.styles";
+import { Apresentation, ButtonDownload, Container, ImageMe, LinkDownload, Title } from "./Home.styles";
+import { DarkContext, useDarkMode } from "../../Context/DarkContext";
 
 export default function Home() {
   const [language] = useContext(AuthContext);
+  const {darkmode} = useDarkMode();
 
   return (
     <Container>
@@ -28,11 +30,11 @@ export default function Home() {
               transition={{ duration: 1 }}
               viewport={{ once: true }}
             >
-              <Title>
+              <Title darkmode={darkmode ? "dark-mode": "light-mode"}>
                 Rodrigo <br />Carvalho Lima <br />Programador Full Stack<br />
-                <a href="../../archive/Curriculo - Rodrigo Carvalho Lima.pdf" download>
-                  <ButtonDownload>Baixar CV</ButtonDownload>
-                </a>
+                <LinkDownload href="../../archive/Curriculo - Rodrigo Carvalho Lima.pdf" download>
+                  <ButtonDownload darkmode={darkmode ? "dark-mode" :"light-mode"}>Baixar CV</ButtonDownload>
+                </LinkDownload>
               </Title>
             </motion.div>
 
@@ -55,9 +57,9 @@ export default function Home() {
             >
               <Title>
                 Rodrigo <br />Carvalho Lima <br />Full Stack Developer <br />
-                <a href="../../archive/Curriculo - Rodrigo Carvalho Lima.docx" download>
+                <LinkDownload href="../../archive/Curriculo - Rodrigo Carvalho Lima.docx" download>
                   <ButtonDownload>Download CV</ButtonDownload>
-                </a>
+                </LinkDownload>
               </Title>
             </motion.div>
 
