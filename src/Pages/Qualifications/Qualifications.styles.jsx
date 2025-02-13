@@ -22,3 +22,10 @@ export const Title = styled.h1`
   margin: 0;
 }
 `
+export const Certificates = styled.div`
+display: flex;
+flex-direction: row;
+padding: 100px;
+gap: 50px;
+
+`;

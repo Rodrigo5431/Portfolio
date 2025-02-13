@@ -76,7 +76,6 @@ export default function Home() {
         )}
       </motion.div>
       <Line />
-
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -85,9 +84,7 @@ export default function Home() {
       >
         <Technologies />
       </motion.div>
-
       <Line />
-
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -96,9 +93,7 @@ export default function Home() {
       >
         <Projects />
       </motion.div>
-
       <Line />
-
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}

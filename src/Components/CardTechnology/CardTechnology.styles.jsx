@@ -50,7 +50,7 @@ export const TechnologyItem = styled.li`
   font-size: 2rem;
   color: ${({ darkmode }) =>
     darkmode === "dark-mode" ? "#926ac1" : "#ff4500"};
-  transition: all 0.3s ease-in-out;
+  
 
   &:hover {
     color: #fff;
