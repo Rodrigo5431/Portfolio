@@ -11,10 +11,17 @@ export const Title = styled.h1`
   margin-left: 200px;
 
   @media (max-width: 1200px) {
+    display: flex;
+    flex-direction: column;
     font-size: 3rem;
-    margin: 0;
+    margin-left: 50px;
     text-align: center;
-  }
+    align-items: center;
+}
+  @media (max-width: 800px) {
+  margin: 0;
+}
+
 `;
 
 export const Apresentation = styled.div`
@@ -32,9 +39,9 @@ export const Apresentation = styled.div`
 `;
 
 export const ImageMe = styled.img`
-  width: 500px;
-  height: 500px;
-  border-radius: 50px;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
   margin-right: 150px;
 
   @media (max-width: 1400px) {

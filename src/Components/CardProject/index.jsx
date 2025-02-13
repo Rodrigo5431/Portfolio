@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Container, ImageProject, TitleProject } from "./CardProject.styles";
+import { useEffect } from "react";
 
 export default function CardProject({ post }) {
 
@@ -9,6 +10,10 @@ export default function CardProject({ post }) {
     navigate(`/project/${id}`, { state: { project: post } }); 
 
   }
+  useEffect(()=>{
+    console.log("posts"+ post.image);
+    
+  },[])
 
   return(
     <Container onClick={()=>{handleProject(post.id)}}>

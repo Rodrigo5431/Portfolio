@@ -27,8 +27,8 @@ import { useDarkMode } from "../../Context/DarkContext";
 export default function ProjectDetails() {
   const location = useLocation();
   const [project, setProject] = useState(location.state.project || {});
-  const [ language ] = useContext(AuthContext);
-  const {darkmode} = useDarkMode();
+  const [language] = useContext(AuthContext);
+  const { darkmode } = useDarkMode();
 
   const techIcons = {
     Java: <FaJava size={20} color="#f89820" />,
@@ -48,16 +48,25 @@ export default function ProjectDetails() {
     <Container>
       <Header />
       <ProjectInformations>
-        <ImageProject src={project.image} alt={project.title} />
+        <ImageProject
+          src={project.image}
+          alt={language ? project.title : project.titleEnglish}
+        />
         <InformationsArea>
-          <TitleProject darkmode={darkmode?"dark-mode":"light-mode"}>{project.title}</TitleProject>
+          <TitleProject darkmode={darkmode ? "dark-mode" : "light-mode"}>
+            {language?project.title:project.titleEnglish}
+          </TitleProject>
           <Description>{project.description}</Description>
 
           <TechnologiesArea>
             {language ? (
-              <TitleTechnology darkmode={darkmode?"dark-mode":"light-mode"}>Tecnologias Usadas</TitleTechnology>
+              <TitleTechnology darkmode={darkmode ? "dark-mode" : "light-mode"}>
+                Tecnologias Usadas
+              </TitleTechnology>
             ) : (
-              <TitleTechnology darkmode={darkmode?"dark-mode":"light-mode"}>Technologies Used</TitleTechnology>
+              <TitleTechnology darkmode={darkmode ? "dark-mode" : "light-mode"}>
+                Technologies Used
+              </TitleTechnology>
             )}
 
             <Technologies>

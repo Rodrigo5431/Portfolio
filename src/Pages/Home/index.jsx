@@ -1,14 +1,15 @@
 import { motion } from "framer-motion";
 import { useContext } from 'react';
 import rodrigo from '../../assets/rodrigo.jpg';
+import About from '../../Components/About';
+import Footer from "../../Components/Footer";
 import Header from "../../Components/Header";
 import Line from '../../Components/Line';
-import Technologies from '../../Components/Technologies';
-import About from '../../Components/About';
 import Projects from '../../Components/Projects';
+import Technologies from '../../Components/Technologies';
 import { AuthContext } from '../../Context/Auth';
+import { useDarkMode } from "../../Context/DarkContext";
 import { Apresentation, ButtonDownload, Container, ImageMe, LinkDownload, Title } from "./Home.styles";
-import { DarkContext, useDarkMode } from "../../Context/DarkContext";
 
 export default function Home() {
   const [language] = useContext(AuthContext);
@@ -106,6 +107,7 @@ export default function Home() {
       >
         <About />
       </motion.div>
+      <Footer/>
     </Container>
   );
 }

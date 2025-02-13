@@ -19,6 +19,13 @@ export const NavigationSection = styled.nav`
   justify-content: space-between;
   width: 100%;
 `;
+export const ButtonCreateProject = styled.h1`
+  display: flex;
+  width: 15%;
+  height: 30px;
+  cursor: pointer;
+  color: ${({ darkmode }) => (darkmode == "dark-mode" ? "#fff" : "#000")};
+`;
 
 export const Title = styled.h1`
   font-size: 3em;
@@ -52,8 +59,15 @@ export const ListComponents = styled.li`
   cursor: pointer;
   margin-left: 25px;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1200px) {
+    font-size: 1.5rem;
+  }
+  @media (max-width: 1050px) {
     font-size: 1.2rem;
+  }
+  @media (max-width: 900px) {
+    font-size: 1rem;
+    text-align: center;
   }
 `;
 

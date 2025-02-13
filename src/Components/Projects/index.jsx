@@ -10,6 +10,7 @@ import { AuthContext } from "../../Context/Auth";
 import { handlePosts } from "../../services/api";
 import CardProject from "../CardProject";
 import { useDarkMode } from "../../Context/DarkContext";
+import { img } from "framer-motion/client";
 
 export default function Technologies() {
   const [language] = useContext(AuthContext);
@@ -31,11 +32,14 @@ export default function Technologies() {
       console.error("Erro ao buscar posts:", error);
       setError(true);
     }
+    
   }
 
   useEffect(() => {
     fetchPosts();
   }, []);
+
+  
 
   return (
     <Container id="projects">

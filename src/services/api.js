@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:8080";
+const API = "https://portfolio-backend-l0j1.onrender.com";
 
 export const api = axios.create({
   baseURL: API,
@@ -31,6 +31,7 @@ export const handlePosts = async () => {
     if (response.status == 200) {
       return response.data;
     }
+
   } catch (error) {
   }
 };
@@ -47,3 +48,26 @@ export const handleImagePosts = async (post) => {
     console.error(error);
   }
 };
+export const handleCreatePost = async (formData) => {
+
+  const token = localStorage.getItem("token");
+  
+  try {
+    const response = await api.post("/projects", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        authorization: `Bearer ${token}`
+      }
+    });
+
+    if (response.status === 200) {
+      return response.data;
+    } else {
+      console.error("Erro ao criar projeto");
+    }
+  } catch (error) {
+    console.error("Erro ao enviar o post:", error.response?.data || error);
+    throw error;
+  }
+};
+

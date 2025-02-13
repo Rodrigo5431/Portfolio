@@ -1,29 +1,30 @@
 import { useContext, useEffect, useState } from "react";
 import { FiMoon, FiSun } from "react-icons/fi";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Context/Auth";
 import { useDarkMode } from "../../Context/DarkContext";
-// import "./Header.module.css";
 import brasil from "../../assets/brasil.png";
 import eua from "../../assets/estadosUnidos.png";
 import {
+  ButtonCreateProject,
   Container,
   DarkModeSwitch,
+  Flag,
   ListComponents,
   ListNavigation,
-  Navigation,
-  Title,
   Menu,
+  MenuBurguer,
   MenuIcon,
   MenuLine,
-  MenuBurguer,
+  Navigation,
   NavigationSection,
-  Flag,
+  Title,
 } from "./Header.styles";
-import { AuthContext } from "../../Context/Auth";
 
 export default function Header() {
   const { darkmode, toggleDarkMode } = useDarkMode();
   const [hamburguer, setHamburguer] = useState(false);
+  const [token, setToken] = useState(false);
   const [language, setLanguage] = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -44,8 +45,12 @@ export default function Header() {
     localStorage.setItem("language", language);
   }, [language]);
 
+  useEffect(() => {
+    setToken(localStorage.getItem("token"));
+  }, []);
+
   return (
-    <Container >
+    <Container>
       <NavigationSection>
         <Title darkmode={darkmode ? "dark-mode" : "light-mode"}>
           &lt;Rodrigo/&gt;
@@ -53,6 +58,16 @@ export default function Header() {
         <Navigation>
           <ListNavigation>
             <Menu>
+              {token && (
+                <ButtonCreateProject
+                  darkmode={darkmode ? "dark-mode" : "light-mode"}
+                  onClick={() => {
+                    navigate("/createProject");
+                  }}
+                >
+                  {language ? "Criar Projeto" : "Create Project"}
+                </ButtonCreateProject>
+              )}
               <Flag
                 src={brasil}
                 onClick={() => setLanguage(true)}
@@ -69,7 +84,11 @@ export default function Header() {
                 />
               ) : (
                 <FiSun
-                  style={{color: darkmode? "black" : "black", width: "30px", height: "30px" }}
+                  style={{
+                    color: darkmode ? "black" : "black",
+                    width: "30px",
+                    height: "30px",
+                  }}
                 />
               )}
               <DarkModeSwitch
@@ -78,6 +97,13 @@ export default function Header() {
               ></DarkModeSwitch>
               {language ? (
                 <Menu>
+                  <div onClick={() => navigate('/qualification')}>
+                    <ListComponents
+                      darkmode={darkmode ? "dark-mode" : "light-mode"}
+                    >
+                      Formações
+                    </ListComponents>
+                  </div>
                   <div onClick={() => handleLocateChange("skills")}>
                     <ListComponents
                       darkmode={darkmode ? "dark-mode" : "light-mode"}
@@ -102,6 +128,13 @@ export default function Header() {
                 </Menu>
               ) : (
                 <Menu>
+                  <div onClick={() => navigate('/qualification')}>
+                    <ListComponents
+                      darkmode={darkmode ? "dark-mode" : "light-mode"}
+                    >
+                      Qualifications
+                    </ListComponents>
+                  </div>
                   <div onClick={() => handleLocateChange("skills")}>
                     <ListComponents
                       darkmode={darkmode ? "dark-mode" : "light-mode"}
@@ -161,6 +194,13 @@ export default function Header() {
                   style={{ opacity: !language ? 1 : 0.5, cursor: "pointer" }}
                 />
               </div>
+              <div onClick={() => navigate('/qualification')}>
+                <ListComponents
+                  darkmode={darkmode ? "dark-mode" : "light-mode"}
+                >
+                  Formações
+                </ListComponents>
+              </div>
               <div onClick={() => handleLocateChange("skills")}>
                 <ListComponents
                   darkmode={darkmode ? "dark-mode" : "light-mode"}
@@ -208,7 +248,13 @@ export default function Header() {
                   style={{ opacity: !language ? 1 : 0.5, cursor: "pointer" }}
                 />
               </div>
-
+              <div onClick={() => navigate('/qualification')}>
+                <ListComponents
+                  darkmode={darkmode ? "dark-mode" : "light-mode"}
+                >
+                  Qualifications
+                </ListComponents>
+              </div>
               <div onClick={() => handleLocateChange("skills")}>
                 <ListComponents
                   darkmode={darkmode ? "dark-mode" : "light-mode"}
