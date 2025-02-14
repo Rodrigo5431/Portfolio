@@ -13,6 +13,14 @@ export const Title = styled.h1`
 color: ${({ darkmode }) => (darkmode === "dark-mode" ? "#926ac1" : "#ff4500")};
 font-size: 4rem;
 `
+export const Loading = styled.h1`
+display: flex;
+text-align: center;
+justify-content: center;
+align-items: center;
+color: ${({ darkmode }) => (darkmode === "dark-mode" ? "#fff" : "black")};
+font-size: 4rem;
+`
 export const ProjectList = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);

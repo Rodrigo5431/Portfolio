@@ -1,39 +1,57 @@
 import { motion } from "framer-motion";
-import { useContext } from 'react';
-import rodrigo from '../../assets/rodrigo.jpg';
+import { useContext } from "react";
+import rodrigo from "../../assets/rodrigo.jpg";
+import About from "../../Components/About";
+import Footer from "../../Components/Footer";
 import Header from "../../Components/Header";
-import Line from '../../Components/Line';
-import Technologies from '../../Components/Technologies';
-import About from '../../Components/About';
-import Projects from '../../Components/Projects';
-import { AuthContext } from '../../Context/Auth';
-import { Apresentation, ButtonDownload, Container, ImageMe, LinkDownload, Title } from "./Home.styles";
-import { DarkContext, useDarkMode } from "../../Context/DarkContext";
+import Line from "../../Components/Line";
+import Projects from "../../Components/Projects";
+import Technologies from "../../Components/Technologies";
+import { AuthContext } from "../../Context/Auth";
+import { useDarkMode } from "../../Context/DarkContext";
+import {
+  Apresentation,
+  ButtonDownload,
+  Container,
+  ImageMe,
+  LinkDownload,
+  Title,
+} from "./Home.styles";
 
 export default function Home() {
   const [language] = useContext(AuthContext);
-  const {darkmode} = useDarkMode();
+  const { darkmode } = useDarkMode();
 
   return (
     <Container>
       <Header />
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
         {language ? (
           <Apresentation>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -100 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
               viewport={{ once: true }}
             >
-              <Title darkmode={darkmode ? "dark-mode": "light-mode"}>
-                Rodrigo <br />Carvalho Lima <br />Programador Full Stack<br />
-                <LinkDownload href="../../archive/Curriculo - Rodrigo Carvalho Lima.pdf" download>
-                  <ButtonDownload darkmode={darkmode ? "dark-mode" :"light-mode"}>Baixar CV</ButtonDownload>
+              <Title darkmode={darkmode ? "dark-mode" : "light-mode"}>
+                Rodrigo <br />
+                Carvalho Lima <br />
+                Programador Full Stack
+                <br />
+                <LinkDownload
+                  href="../../../public/archive/curriculo-RodrigoCarvalhoLima.pdf"
+                  download
+                >
+                  <ButtonDownload
+                    darkmode={darkmode ? "dark-mode" : "light-mode"}
+                  >
+                    Baixar CV
+                  </ButtonDownload>
                 </LinkDownload>
               </Title>
             </motion.div>
@@ -44,7 +62,16 @@ export default function Home() {
               transition={{ duration: 1 }}
               viewport={{ once: true }}
             >
-              <ImageMe src={rodrigo} />
+              <ImageMe
+                src={rodrigo}
+                animate={{ y: [0, -20, 0] }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut",
+                }}
+              />
             </motion.div>
           </Apresentation>
         ) : (
@@ -55,10 +82,19 @@ export default function Home() {
               transition={{ duration: 1 }}
               viewport={{ once: true }}
             >
-              <Title darkmode={darkmode ? "dark-mode": "light-mode"}>
-                Rodrigo <br />Carvalho Lima <br />Full Stack Developer <br />
-                <LinkDownload href="../../archive/Curriculo - Rodrigo Carvalho Lima.docx" download>
-                  <ButtonDownload darkmode={darkmode ? "dark-mode": "light-mode"}>Download CV</ButtonDownload>
+              <Title darkmode={darkmode ? "dark-mode" : "light-mode"}>
+                Rodrigo <br />
+                Carvalho Lima <br />
+                Full Stack Developer <br />
+                <LinkDownload
+                  href="../../../public/archive/curriculo-RodrigoCarvalhoLima.pdf"
+                  download
+                >
+                  <ButtonDownload
+                    darkmode={darkmode ? "dark-mode" : "light-mode"}
+                  >
+                    Download CV
+                  </ButtonDownload>
                 </LinkDownload>
               </Title>
             </motion.div>
@@ -75,7 +111,6 @@ export default function Home() {
         )}
       </motion.div>
       <Line />
-
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -84,9 +119,7 @@ export default function Home() {
       >
         <Technologies />
       </motion.div>
-
       <Line />
-
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -95,9 +128,7 @@ export default function Home() {
       >
         <Projects />
       </motion.div>
-
       <Line />
-
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -106,6 +137,7 @@ export default function Home() {
       >
         <About />
       </motion.div>
+      <Footer />
     </Container>
   );
 }

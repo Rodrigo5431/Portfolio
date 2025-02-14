@@ -11,6 +11,10 @@ export const Title = styled.h1`
   color: ${({ darkmode }) =>
     darkmode === "dark-mode" ? "#8d52d0" : "#ff4500"};
   font-size: 4rem;
+
+  @media (max-width:800px) {
+    font-size: 3rem;
+  }
 `;
 export const History = styled.h2`
   color: ${({ darkmode }) =>
@@ -18,10 +22,15 @@ export const History = styled.h2`
   font-size: 2rem;
   text-align: center;
   margin-inline: 5%;
+
+  @media (max-width:800px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const AboutMe = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 `;

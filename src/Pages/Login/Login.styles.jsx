@@ -4,7 +4,7 @@ import {Link }  from 'react-router-dom'
 
 export const Main = styled.main`
 display: flex;
-justify-content: center;
+flex-direction: column;
 align-items: center;
 background-color: #151718;
 width: 100%;
@@ -18,6 +18,7 @@ color: #6f20a8;
 
 export const All = styled.div`
 justify-content: center;
+margin-top: 120px;
 align-items: center;
 margin-bottom: 80px;
 background: rgba(255, 255, 255, 0.04);
