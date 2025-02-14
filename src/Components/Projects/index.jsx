@@ -49,7 +49,7 @@ export default function Technologies() {
     <Container id="projects">
       <Title darkmode={darkmode ? "dark-mode" : "light-mode"}>{language ? "<Projetos/>" : "<Projects/>"}</Title>
       {loading && (
-        <Loading>Carregando...</Loading>
+        <Loading darkmode={darkmode ? "dark-mode" : "light-mode"}>Carregando...</Loading>
       )}
       {error ? (
         <Error>Não foi possível conectar à API</Error>

@@ -77,7 +77,15 @@ export default function Qualifications() {
           certificate={breve}
           description="O curso  aborda fundamentos da qualidade de software, Scrum, requisitos, lógica de programação,
            testes manuais e automatizados, metodologias ágeis e boas práticas."
-          technologies={[]}
+          technologies={[""]}
+        />
+        <CardQualification
+          title="Engenharia de Software"
+          duration="02/2025 - PRESENTE"
+          certificate={breve}
+          description="Ensino Superior de Engenharia de Software da Estácio que profissionais para o desenvolvimento,
+           análise e manutenção de sistemas, com ênfase em metodologias ágeis, programação e gestão de projetos."
+          technologies={[""]}
         />
       </Certificates>
     </Container>
