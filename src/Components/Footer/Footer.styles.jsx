@@ -7,12 +7,12 @@ export const Container = styled.footer`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #2f2f2f;
-  position: relative;
+  background-color: #171717;
+  margin-top: 150px;
 `;
 
 export const Title = styled.h1`
-  color: ${({ darkmode }) => (darkmode === "dark-mode" ? "#fff" : "#333")};
+  color: #fff;
   transition: color 0.8s ease;
   font-weight: 500;
 `;

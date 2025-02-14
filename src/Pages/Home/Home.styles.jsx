@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { motion } from "framer-motion";
 
 export const Container = styled.main`
   display: flex;
@@ -38,11 +39,12 @@ export const Apresentation = styled.div`
   }
 `;
 
-export const ImageMe = styled.img`
-  width: 450px;
-  height: 450px;
+export const ImageMe = styled(motion.img)`
+  width: 400px;
+  height: 400px;
   border-radius: 50%;
   margin-right: 150px;
+
 
   @media (max-width: 1400px) {
     margin-left: 50px;
@@ -57,6 +59,7 @@ export const ImageMe = styled.img`
     margin: 0;
     margin-top: 70px;
   }
+
 `;
 
 export const LinkDownload = styled.a`

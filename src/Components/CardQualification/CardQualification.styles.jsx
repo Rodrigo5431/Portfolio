@@ -16,21 +16,30 @@ transition: all 0.3s ease-in-out;
 
 `
 export const Certificate = styled.img`
-width: 230px;
-height: 250px;
-border-radius: 25px;
-`
+  width: 230px;
+  height: 200px;
+  border-radius: 25px;
+  margin-bottom: 10px;
+  cursor: pointer;
+
+  &:hover {
+  }
+`;
+export const LinkImage = styled.a`
+  width: 230px;
+  height: 200px;
+  border-radius: 25px;
+  margin-bottom: 15px;
+`;
+
 export const Title = styled.h1`
-width: 230px;
-height: 220px;
 font-size: 1.5rem;
-border-radius: 25px;
 color: #fff;
+margin: 0;
 `
 export const Time = styled.h3`
 color: #fff;
 font-size: 1rem;
-margin-top: -5px;
 `
 export const Description = styled.h3`
 border-radius: 25px;
@@ -47,7 +56,9 @@ const iconColors = {
   react: "#61DAFB", 
   java: "#007396",
   docker: "#2496ED", 
-  spring: "#6DB33F", 
+  spring: "#6DB33F",
+  mysql: "#4479A1", 
+  postgresql: "#336791", 
 };
 
 export const TechIcon = styled.div`

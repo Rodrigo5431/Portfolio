@@ -5,12 +5,16 @@ import {
   FaJava,
   FaJs,
   FaReact,
+  FaDatabase,
 } from "react-icons/fa";
-import { SiSpring } from "react-icons/si";
+import { SiSpring, SiMysql, SiPostgresql } from "react-icons/si";
+import EstadosUnidos from "../../assets/estadosUnidos.png";
+
 import {
   Card,
   Certificate,
   Description,
+  LinkImage,
   TechIcon,
   Technologies,
   Time,
@@ -32,11 +36,16 @@ export default function CardQualification({
     java: <FaJava />,
     docker: <FaDocker />,
     spring: <SiSpring />,
+    mysql: <SiMysql />,
+    postgresql: <SiPostgresql />,
+    usa: <img src={EstadosUnidos} alt="EUA" style={{ width: "40px", height: "30px", borderRadius: "5px" }} />,
   };
 
   return (
     <Card>
-      <Certificate src={certificate} alt="Certificate" />
+      <LinkImage href={certificate}>
+        <Certificate src={certificate} alt="Certificate" />
+      </LinkImage>
       <Title>{title}</Title>
       <Time>{duration}</Time>
       <Description>{description}</Description>
@@ -44,7 +53,7 @@ export default function CardQualification({
         {Array.isArray(technologies) && technologies.length > 0 ? (
           technologies.map((tech) => (
             <TechIcon key={tech.toLowerCase()} $tech={tech.toLowerCase()}>
-              {iconMap[tech.toLowerCase()]}
+              {iconMap[tech.toLowerCase()] || <p>❌ Icon not found</p>}
             </TechIcon>
           ))
         ) : (
