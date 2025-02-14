@@ -1,16 +1,16 @@
 import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../Context/Auth";
+import { useDarkMode } from "../../Context/DarkContext";
+import { handlePosts } from "../../services/api";
+import CardProject from "../CardProject";
 import {
   Container,
   Error,
+  LoadMoreButton,
+  Loading,
   ProjectList,
   Title,
-  LoadMoreButton,
 } from "./Projects.styles";
-import { AuthContext } from "../../Context/Auth";
-import { handlePosts } from "../../services/api";
-import CardProject from "../CardProject";
-import { useDarkMode } from "../../Context/DarkContext";
-import { img } from "framer-motion/client";
 
 export default function Technologies() {
   const [language] = useContext(AuthContext);
@@ -25,6 +25,7 @@ export default function Technologies() {
     try {
       const data = await handlePosts();
       if (Array.isArray(data)) {
+        setLoading(false);
         setPosts(data);
         setError(false);
       } else {
@@ -47,7 +48,9 @@ export default function Technologies() {
   return (
     <Container id="projects">
       <Title darkmode={darkmode ? "dark-mode" : "light-mode"}>{language ? "<Projetos/>" : "<Projects/>"}</Title>
-
+      {loading && (
+        <Loading>Carregando...</Loading>
+      )}
       {error ? (
         <Error>Não foi possível conectar à API</Error>
       ) : (

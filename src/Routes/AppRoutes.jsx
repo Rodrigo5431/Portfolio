@@ -19,7 +19,7 @@ import UpdateProject from "../Pages/UpdateProject";
               <Route path="/login" element={<Login />} />
               <Route path="/createproject" element={<CreateProject />} />
               <Route path="/Qualification" element={<Qualifications/>} />
-              <Route path="/updateproject" element={<UpdateProject/>} />
+              <Route path="/updateproject/:id" element={<UpdateProject/>} />
             </Routes>
           </DarkProvider>
         </AuthProvider>

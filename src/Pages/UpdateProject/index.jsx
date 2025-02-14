@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Header from "../../Components/Header";
 import { AuthContext } from "../../Context/Auth";
-import { handleCreatePost } from "../../services/api";
+import { handleUpdatePost } from "../../services/api";
 
 import {
   BtnDiv,
@@ -19,33 +19,44 @@ import {
 } from "./UpdateProject.styles";
 
 export default function UpdateProject() {
+  const location = useLocation();
+  const [project, setProject] = useState(location.state.project || {});
   const navigate = useNavigate();
+  const [language] = useContext(AuthContext);
   const [errors, setErrors] = useState({});
   const [forbidden, setForbidden] = useState(true);
   const [sucess, setSucess] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [language] = useContext(AuthContext);
-  const [title, setTitle] = useState("");
-  const [titleEnglish, setTitleEnglish] = useState("");
-  const [description, setDescription] = useState("");
-  const [descriptionEnglish, setDescriptionEnglish] = useState("");
-  const [link, setLink] = useState("");
-  const [githubLink, setGithubLink] = useState("");
-  const [technologies, setTechnologies] = useState("");
-  const [file, setFile] = useState(null);
+  const [id, setId] = useState(project.id);
+  const [title, setTitle] = useState(project.title);
+  const [titleEnglish, setTitleEnglish] = useState(project.titleEnglish);
+  const [description, setDescription] = useState(project.description);
+  const [descriptionEnglish, setDescriptionEnglish] = useState(project.descriptionEnglish);
+  const [link, setLink] = useState(project.link);
+  const [githubLink, setGithubLink] = useState(project.githubLink);
+  const [technologies, setTechnologies] = useState(project.technologies);
+  const [file, setFile] = useState(project.file);
 
   const getTechArray = () => {
-    return technologies
-      .split(",")
-      .map((tech) => tech.trim())
-      .filter((tech) => tech !== "");
+    if (typeof technologies === "string") {
+      return technologies
+        .split(",")
+        .map((tech) => tech.trim())
+        .filter((tech) => tech !== "");
+    }
+    if (Array.isArray(technologies)) {
+      return technologies.map((tech) => tech.trim());
+    }
+    return [];
   };
+  
 
   const handleSubmit = async (event) => {
     setLoading(true);
     event.preventDefault();
 
     const post = JSON.stringify({
+      id,
       title,
       titleEnglish,
       description,
@@ -66,11 +77,9 @@ export default function UpdateProject() {
     }
 
     try {
-      const response = await handleCreatePost(formData);
+      const response = await handleUpdatePost(formData, id);
 
       if (response) {
-        console.log("aqui");
-
         setSucess(true);
         setTitle("");
         setTitleEnglish("");
@@ -80,7 +89,10 @@ export default function UpdateProject() {
         setGithubLink("");
         setFile(null);
         setLoading(false);
-        setTechnologies(null)
+        setTechnologies([])
+        setTimeout(()=>{
+          navigate("/")
+        },3000)
       }
     } catch (error) {
       setErrors({ conteudo: error.response?.data || "Erro desconhecido" });
@@ -88,6 +100,7 @@ export default function UpdateProject() {
     }
   };
 useEffect(() =>{
+  
   const token = localStorage.getItem("token");
   if(token){
     setForbidden(false);
@@ -97,7 +110,6 @@ useEffect(() =>{
       navigate("/login");
     },4000)
   }
- 
 },[])
 
   return (
@@ -108,7 +120,7 @@ useEffect(() =>{
     <Main>
       <Header />
       <CardPost>
-        <MsgH1>{language ? "Criar Projeto" : "Create Project"}</MsgH1>
+        <MsgH1>{language ? "Atualizar Projeto" : "Update Project"}</MsgH1>
         <Line />
         <CardBody>
           <Formulario onSubmit={handleSubmit}>
@@ -198,7 +210,7 @@ useEffect(() =>{
             <input style={{color:"#fff"}} type="file" onChange={(e) => setFile(e.target.files[0])} />
 
             {loading && <TitleLab>Carregando...</TitleLab>}
-            {sucess && <h1 style={{color:"green", fontSize:"25px"}}>Projeto criado com sucesso!</h1>}
+            {sucess && <h1 style={{color:"green", fontSize:"25px"}}>Projeto atualizado com sucesso!</h1>}
             <BtnDiv>
               <BtnPost2 onClick={() => navigate("/")}>
                 {language ? "Voltar" : "Back"}

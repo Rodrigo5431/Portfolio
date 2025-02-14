@@ -70,4 +70,25 @@ export const handleCreatePost = async (formData) => {
     throw error;
   }
 };
+export const handleUpdatePost = async (formData, id) => {
+
+  const token = localStorage.getItem("token");
+  try {
+    const response = await api.put(`/projects/${id}`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        authorization: `Bearer ${token}`
+      }
+    });
+
+    if (response.status === 200) {
+      return response.data;
+    } else {
+      console.error("Erro ao atualizar projeto");
+    }
+  } catch (error) {
+    console.error("Erro ao atualizar o post:", error.response?.data || error);
+    throw error;
+  }
+};
 

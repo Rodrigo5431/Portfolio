@@ -58,7 +58,7 @@ export default function ProjectDetails() {
     <Container>
       <Header />
       {token && (
-        <UpdateProject onClick={() => navigate("/updateProject")} darkmode={darkmode ? "dark-mode" : "light-mode"}>
+        <UpdateProject onClick={() => navigate(`/updateproject/${project.id}`, { state: { project: project } })} darkmode={darkmode ? "dark-mode" : "light-mode"}>
           {language?"Atualizar Projeto": "Update Project"}
         </UpdateProject>
       )}
