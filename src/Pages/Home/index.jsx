@@ -44,7 +44,7 @@ export default function Home() {
                 Programador Full Stack
                 <br />
                 <LinkDownload
-                  href="../../archive/Curriculo - Rodrigo Carvalho Lima.pdf"
+                  href="../../../public/archive/curriculo-RodrigoCarvalhoLima.pdf"
                   download
                 >
                   <ButtonDownload
@@ -87,7 +87,7 @@ export default function Home() {
                 Carvalho Lima <br />
                 Full Stack Developer <br />
                 <LinkDownload
-                  href="../../archive/Curriculo-RodrigoCarvalhoLima.docx"
+                  href="../../../public/archive/curriculo-RodrigoCarvalhoLima.pdf"
                   download
                 >
                   <ButtonDownload

@@ -9,21 +9,26 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();  
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
+    setLoading(true);
     setSuccess(false); 
 
     const response = await login(username, password);
 
-    if (response.status == 200) {
+    if (response === 200) {
+      setLoading(false);
+      setError("");
       setSuccess(true);
-      
        setTimeout(() =>navigate("/"), 2000);
     } else {
-      setError(response.message || "Erro ao realizar login. Tente novamente.");
+      setLoading(false);
+      setSuccess(false)
+      setError( "Erro ao realizar login. Tente novamente.");
     }
   };
 
@@ -51,6 +56,11 @@ export default function Login() {
         </Formulario>
 
         {error && <p style={{ color: "red", marginTop: "10px" }}>{error}</p>}
+        {loading && (
+          <p style={{ color: "#fff", marginTop: "10px" }}>
+            Carregando...
+          </p>
+        )}
         {success && (
           <p style={{ color: "green", marginTop: "10px" }}>
             Login realizado com sucesso!

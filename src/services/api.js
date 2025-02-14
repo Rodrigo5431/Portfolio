@@ -13,11 +13,11 @@ export const login = async (email, password) => {
         email,
         password
     });
-    if (response.status == 200) {
+    if (response.status === 200) {
         const token = response.headers["authorization"];
         localStorage.setItem("token", token.split(" ")[1]);
     }
-    return response;
+    return response.status;
 
   } catch (error) {
     console.error(error);

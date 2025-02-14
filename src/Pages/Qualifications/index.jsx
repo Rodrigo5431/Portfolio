@@ -59,25 +59,25 @@ export default function Qualifications() {
           title="Programador Full Stack"
           duration="09/2024 - 11/2024"
           certificate={fullstack}
-          description="Curso de Qualificação Profissional, onde pude aprender o desenvolvimento de API's restful,
-           com foco em Spring Boot, Hibernate e JPA."
-          technologies={["java", "react", "Spring", "Postgresql"]}
+          description="A Residência em TIC/Software é um curso intensivo de 5 meses (770h),
+             formando desenvolvedores Full Stack por meio de aulas, projetos práticos e mentorias."
+          technologies={["java","javascript","typescript", "react", "Spring", "Postgresql"]}
         />
         <CardQualification
-        title="Produtividade na era da IA Generativa"
-        duration="02/2025 - 02/2025"
-        certificate={ia}
-        description="Curso de Qualificação Profissional, onde pude aprender o desenvolvimento de API's restful,
+          title="Produtividade na era da IA Generativa"
+          duration="02/2025 - 02/2025"
+          certificate={ia}
+          description="Curso de Qualificação Profissional, onde pude aprender o desenvolvimento de API's restful,
          com foco em Spring Boot, Hibernate e JPA."
-        technologies={["java", "react", "Spring", "Postgresql"]}
-      />
+          technologies={["java", "react", "Spring", "Postgresql"]}
+        />
         <CardQualification
           title="Introdução a Qualidade de Software"
           duration="02/2025 - 02/2025"
           certificate={breve}
           description="O curso  aborda fundamentos da qualidade de software, Scrum, requisitos, lógica de programação,
            testes manuais e automatizados, metodologias ágeis e boas práticas."
-          technologies={["java", "react", "Spring", "Postgresql"]}
+          technologies={[]}
         />
       </Certificates>
     </Container>

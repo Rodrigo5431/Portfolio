@@ -16,9 +16,9 @@ import {
   MsgH1,
   TitleLab,
   TitleText,
-} from "./CreateProject.styles";
+} from "./UpdateProject.styles";
 
-export default function CreateProject() {
+export default function UpdateProject() {
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
   const [forbidden, setForbidden] = useState(true);
@@ -67,7 +67,10 @@ export default function CreateProject() {
 
     try {
       const response = await handleCreatePost(formData);
+
       if (response) {
+        console.log("aqui");
+
         setSucess(true);
         setTitle("");
         setTitleEnglish("");
@@ -82,8 +85,6 @@ export default function CreateProject() {
     } catch (error) {
       setErrors({ conteudo: error.response?.data || "Erro desconhecido" });
       setLoading(false);
-      console.error( error);
-      
     }
   };
 useEffect(() =>{

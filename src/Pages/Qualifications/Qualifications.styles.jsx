@@ -28,7 +28,7 @@ flex-wrap: wrap;
 flex-direction: row;
 padding: 100px;
 gap: 50px;
-
+justify-content: center;
 @media (max-width: 764px) {
 justify-content: center;
 }

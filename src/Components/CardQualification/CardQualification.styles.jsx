@@ -1,4 +1,6 @@
 import { styled } from "styled-components";
+import "@fontsource/inter/300.css"
+
 
 export const Card = styled.div`
 display: flex;
@@ -36,14 +38,20 @@ export const Title = styled.h1`
 font-size: 1.5rem;
 color: #fff;
 margin: 0;
+font-family: 'Inter', sans-serif;
+font-weight: 600;
 `
 export const Time = styled.h3`
 color: #fff;
 font-size: 1rem;
+font-weight: 100;
 `
 export const Description = styled.h3`
 border-radius: 25px;
 color: #fff;
+font-family: 'Inter', sans-serif;
+font-weight: 400;
+font-size: 1.1rem;
 `
 export const Technologies = styled.h3`
   border-radius: 25px;
@@ -53,6 +61,7 @@ const iconColors = {
   html: "#E34F26", 
   css: "#1572B6", 
   javascript: "#F7DF1E", 
+  typescript: "#3178C6", 
   react: "#61DAFB", 
   java: "#007396",
   docker: "#2496ED", 
@@ -69,6 +78,10 @@ export const TechIcon = styled.div`
   svg {
     fill: ${({ $tech }) => iconColors[$tech] || "inherit"};
   }
+`;
+export const Error = styled.h1`
+  font-size: 1.2rem;
+  color: red;
 `;
 
 

@@ -1,10 +1,10 @@
 import { ExternalLink, Github } from "lucide-react";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaJava, FaReact, FaJs, FaLeaf } from "react-icons/fa";
 import { FaDocker, FaPython } from "react-icons/fa";
 import { SiTypescript } from "react-icons/si";
 
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Header from "../../Components/Header";
 import {
   Container,
@@ -20,12 +20,15 @@ import {
   TechnologyItem,
   TitleProject,
   TitleTechnology,
+  UpdateProject,
 } from "./ProjectDetails.styles";
 import { AuthContext } from "../../Context/Auth";
 import { useDarkMode } from "../../Context/DarkContext";
 
 export default function ProjectDetails() {
   const location = useLocation();
+  const navigate = useNavigate();  
+  const [token, setToken] = useState();
   const [project, setProject] = useState(location.state.project || {});
   const [language] = useContext(AuthContext);
   const { darkmode } = useDarkMode();
@@ -44,9 +47,21 @@ export default function ProjectDetails() {
     ? project.technologies
     : typeof project.technologies === "string";
 
+    function handleToken(){
+      setToken(localStorage.getItem("token"));
+    }
+    useEffect(()=>{
+      handleToken();
+    },[])
+
   return (
     <Container>
       <Header />
+      {token && (
+        <UpdateProject onClick={() => navigate("/updateProject")} darkmode={darkmode ? "dark-mode" : "light-mode"}>
+          {language?"Atualizar Projeto": "Update Project"}
+        </UpdateProject>
+      )}
       <ProjectInformations>
         <ImageProject
           src={project.image}

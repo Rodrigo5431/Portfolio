@@ -14,18 +14,21 @@ import { img } from "framer-motion/client";
 
 export default function Technologies() {
   const [language] = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);
   const [visibleCount, setVisibleCount] = useState(6);
   const [error, setError] = useState(false);
   const {darkmode} = useDarkMode();
 
   async function fetchPosts() {
+    setLoading(true);
     try {
       const data = await handlePosts();
       if (Array.isArray(data)) {
         setPosts(data);
         setError(false);
       } else {
+        setLoading(false);
         setError(true);
       }
     } catch (error) {

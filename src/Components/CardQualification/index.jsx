@@ -7,13 +7,14 @@ import {
   FaReact,
   FaDatabase,
 } from "react-icons/fa";
-import { SiSpring, SiMysql, SiPostgresql } from "react-icons/si";
+import { SiSpring, SiMysql, SiPostgresql, SiTypescript } from "react-icons/si";
 import EstadosUnidos from "../../assets/estadosUnidos.png";
 
 import {
   Card,
   Certificate,
   Description,
+  Error,
   LinkImage,
   TechIcon,
   Technologies,
@@ -32,13 +33,20 @@ export default function CardQualification({
     html: <FaHtml5 />,
     css: <FaCss3Alt />,
     javascript: <FaJs />,
+    typescript: <SiTypescript />,
     react: <FaReact />,
     java: <FaJava />,
     docker: <FaDocker />,
     spring: <SiSpring />,
     mysql: <SiMysql />,
     postgresql: <SiPostgresql />,
-    usa: <img src={EstadosUnidos} alt="EUA" style={{ width: "40px", height: "30px", borderRadius: "5px" }} />,
+    usa: (
+      <img
+        src={EstadosUnidos}
+        alt="EUA"
+        style={{ width: "40px", height: "30px", borderRadius: "5px" }}
+      />
+    ),
   };
 
   return (
@@ -57,7 +65,7 @@ export default function CardQualification({
             </TechIcon>
           ))
         ) : (
-          <p>Error</p>
+          <Error>Tecnologias não Utilizadas</Error>
         )}
       </Technologies>
     </Card>
