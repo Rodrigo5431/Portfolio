@@ -16,8 +16,8 @@ font-size: 4rem;
 export const Loading = styled.h1`
 display: flex;
 text-align: center;
-justify-content: center;
-align-items: center;
+justify-self: center;
+align-self: center;
 color: ${({ darkmode }) => (darkmode === "dark-mode" ? "#fff" : "black")};
 font-size: 4rem;
 `
