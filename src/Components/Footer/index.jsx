@@ -1,6 +1,6 @@
 import React from "react";
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { Container, Icon, Icons, PositionUser, Title, User } from "./footer.styles";
+import { Container, Icon, Icons, PositionUser, Title, User } from "./Footer.styles";
 import { useDarkMode } from "../../Context/DarkContext";
 
 export default function Footer() {
