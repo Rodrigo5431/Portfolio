@@ -61,7 +61,7 @@ export default function CardQualification({
         {Array.isArray(technologies) && technologies.length > 0 ? (
           technologies.map((tech) => (
             <TechIcon key={tech.toLowerCase()} $tech={tech.toLowerCase()}>
-              {iconMap[tech.toLowerCase()] || <p>❌ Icon not found</p>}
+              {iconMap[tech.toLowerCase()] }
             </TechIcon>
           ))
         ) : (
