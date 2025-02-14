@@ -4,7 +4,7 @@ export const Card = styled.div`
 display: flex;
 flex-direction: column;
 width: 230px;
-height: 600px;
+height: 620px;
 border-radius: 25px;
 padding: 10px;
 background-color: #082836;

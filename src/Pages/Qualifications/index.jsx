@@ -8,6 +8,8 @@ import fullstack from "../../assets/fullstack.jpg";
 import frontend from "../../assets/frontend.jpg";
 import backend from "../../assets/backend.jpg";
 import ingles from "../../assets/ingles.png";
+import bradesco from "../../assets/bradesco.jpg";
+import breve from "../../assets/breve.jpg";
 
 export default function Qualifications() {
   const [language] = useContext(AuthContext);
@@ -29,14 +31,21 @@ export default function Qualifications() {
            componentização e projetos práticos individuais e em grupo."
           technologies={["Html", "Css", "JavaScript", "react"]}
         />
-          <CardQualification
-            title="Inglês Avançado"
-            duration="12/2019 - 03/2024"
-            certificate={ingles}
-            description="Curso de Qualificação Profissional, onde pude aprender o desenvolvimento web hooks como useState, useEffect.
+        <CardQualification
+          title="Inglês Avançado"
+          duration="12/2019 - 03/2024"
+          certificate={ingles}
+          description="Curso de Qualificação Profissional, onde pude aprender o desenvolvimento web hooks como useState, useEffect.
              Componentizacao. com projetos praticos solos e em grupos "
-            technologies={["usa"]}
-          />
+          technologies={["usa"]}
+        />
+        <CardQualification
+          title="Crie um site simples usando HTML, CSS e JavaScript "
+          duration="04/2024 - 04/2024"
+          certificate={bradesco}
+          description="O curso da Fundação Bradesco ensina a criar sites básicos usando HTML, CSS e JavaScript, com foco em iniciantes. Tem duração de 2 horas e cobre a estrutura, estilo e interatividade de páginas web."
+          technologies={["HTML", "CSS", "javascript"]}
+        />
         <CardQualification
           title="Programador Back-End"
           duration="09/2024 - 11/2024"
@@ -51,7 +60,23 @@ export default function Qualifications() {
           certificate={fullstack}
           description="Curso de Qualificação Profissional, onde pude aprender o desenvolvimento de API's restful,
            com foco em Spring Boot, Hibernate e JPA."
-           technologies={["java","react", "Spring", "Postgresql"]}
+          technologies={["java", "react", "Spring", "Postgresql"]}
+        />
+        <CardQualification
+          title="Introdução a Qualidade de Software"
+          duration="02/2025 - 02/2025"
+          certificate={breve}
+          description="O curso  aborda fundamentos da qualidade de software, Scrum, requisitos, lógica de programação,
+           testes manuais e automatizados, metodologias ágeis e boas práticas."
+          technologies={["java", "react", "Spring", "Postgresql"]}
+        />
+        <CardQualification
+          title="Produtividade na era da IA Generativa"
+          duration="02/2025 - 02/2025"
+          certificate={breve}
+          description="Curso de Qualificação Profissional, onde pude aprender o desenvolvimento de API's restful,
+           com foco em Spring Boot, Hibernate e JPA."
+          technologies={["java", "react", "Spring", "Postgresql"]}
         />
       </Certificates>
     </Container>
