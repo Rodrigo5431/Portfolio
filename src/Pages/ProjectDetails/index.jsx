@@ -1,10 +1,10 @@
 import { ExternalLink, Github } from "lucide-react";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaJava, FaReact, FaJs, FaLeaf } from "react-icons/fa";
 import { FaDocker, FaPython } from "react-icons/fa";
 import { SiTypescript } from "react-icons/si";
 
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Header from "../../Components/Header";
 import {
   Container,
@@ -20,15 +20,18 @@ import {
   TechnologyItem,
   TitleProject,
   TitleTechnology,
+  UpdateProject,
 } from "./ProjectDetails.styles";
 import { AuthContext } from "../../Context/Auth";
 import { useDarkMode } from "../../Context/DarkContext";
 
 export default function ProjectDetails() {
   const location = useLocation();
+  const navigate = useNavigate();  
+  const [token, setToken] = useState();
   const [project, setProject] = useState(location.state.project || {});
-  const [ language ] = useContext(AuthContext);
-  const {darkmode} = useDarkMode();
+  const [language] = useContext(AuthContext);
+  const { darkmode } = useDarkMode();
 
   const techIcons = {
     Java: <FaJava size={20} color="#f89820" />,
@@ -44,20 +47,41 @@ export default function ProjectDetails() {
     ? project.technologies
     : typeof project.technologies === "string";
 
+    function handleToken(){
+      setToken(localStorage.getItem("token"));
+    }
+    useEffect(()=>{
+      handleToken();
+    },[])
+
   return (
     <Container>
       <Header />
+      {token && (
+        <UpdateProject onClick={() => navigate(`/updateproject/${project.id}`, { state: { project: project } })} darkmode={darkmode ? "dark-mode" : "light-mode"}>
+          {language?"Atualizar Projeto": "Update Project"}
+        </UpdateProject>
+      )}
       <ProjectInformations>
-        <ImageProject src={project.image} alt={project.title} />
+        <ImageProject
+          src={project.image}
+          alt={language ? project.title : project.titleEnglish}
+        />
         <InformationsArea>
-          <TitleProject darkmode={darkmode?"dark-mode":"light-mode"}>{project.title}</TitleProject>
+          <TitleProject darkmode={darkmode ? "dark-mode" : "light-mode"}>
+            {language?project.title:project.titleEnglish}
+          </TitleProject>
           <Description>{project.description}</Description>
 
           <TechnologiesArea>
             {language ? (
-              <TitleTechnology darkmode={darkmode?"dark-mode":"light-mode"}>Tecnologias Usadas</TitleTechnology>
+              <TitleTechnology darkmode={darkmode ? "dark-mode" : "light-mode"}>
+                Tecnologias Usadas
+              </TitleTechnology>
             ) : (
-              <TitleTechnology darkmode={darkmode?"dark-mode":"light-mode"}>Technologies Used</TitleTechnology>
+              <TitleTechnology darkmode={darkmode ? "dark-mode" : "light-mode"}>
+                Technologies Used
+              </TitleTechnology>
             )}
 
             <Technologies>
