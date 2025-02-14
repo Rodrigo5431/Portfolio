@@ -11,6 +11,7 @@ import {
   CardBody,
   CardPost,
   Formulario,
+  InputPhoto,
   Line,
   Main,
   MsgH1,
@@ -199,15 +200,15 @@ useEffect(() =>{
               onChange={(e) => setTechnologies(e.target.value)}
               placeholder={
                 language
-                  ? "Ex: React, Node.js, MongoDB"
-                  : "E.g: React, Node.js, MongoDB"
+                  ? "Ex: React, java, spring"
+                  : "E.g: React, java, spring"
               }
             />
 
             <TitleLab>
               {language ? "Imagem do Projeto" : "Project Image"}
             </TitleLab>
-            <input style={{color:"#fff"}} type="file" onChange={(e) => setFile(e.target.files[0])} />
+            <InputPhoto style={{color:"#fff"}} type="file" onChange={(e) => setFile(e.target.files[0])} />
 
             {loading && <TitleLab>Carregando...</TitleLab>}
             {sucess && <h1 style={{color:"green", fontSize:"25px"}}>Projeto atualizado com sucesso!</h1>}

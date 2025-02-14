@@ -19,17 +19,11 @@ export const CardPost = styled.div`
     width: 25rem; 
   }
 
-  @media (min-width: 481px) and (max-width: 768px) {
-    width: 70%; 
-    
+  @media (max-width: 768px) {
+    width: 70%;
   }
-
-  @media (min-width: 769px) and (max-width: 1200px) {
-    width: 60%;
-  }
-
-  @media (min-width: 1201px) {
-    width: 55%;
+  @media (max-width: 500px) {
+    width: 50%;
   }
 `;
 
@@ -112,6 +106,11 @@ export const BtnPost = styled.button`
     border-radius: 10px;
     cursor: pointer;
 `;
+export const InputPhoto = styled.input`
+    @media (max-width: 500px) {
+      font-size: 0.7rem;
+    }
+`;
 
 export const BtnDiv = styled.div`
     display: flex;
@@ -119,7 +118,11 @@ export const BtnDiv = styled.div`
     justify-content: center;
     padding: 10px;
     margin: 15px;
-    gap:30px
+    gap:30px;
+
+    @media (max-width: 500px) {
+      flex-direction: column;
+    }
 `;
 
 export const BtnPost2 = styled(BtnPost)`

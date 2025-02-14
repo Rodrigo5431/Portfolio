@@ -11,6 +11,7 @@ import {
   CardBody,
   CardPost,
   Formulario,
+  InputPhoto,
   Line,
   Main,
   MsgH1,
@@ -194,7 +195,7 @@ useEffect(() =>{
             <TitleLab>
               {language ? "Imagem do Projeto" : "Project Image"}
             </TitleLab>
-            <input style={{color:"#fff"}} type="file" onChange={(e) => setFile(e.target.files[0])} />
+            <InputPhoto style={{color:"#fff"}} type="file" onChange={(e) => setFile(e.target.files[0])} />
 
             {loading && <TitleLab>Carregando...</TitleLab>}
             {sucess && <h1 style={{color:"green", fontSize:"25px"}}>Projeto criado com sucesso!</h1>}
