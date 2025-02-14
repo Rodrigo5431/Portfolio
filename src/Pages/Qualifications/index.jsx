@@ -9,6 +9,7 @@ import frontend from "../../assets/frontend.jpg";
 import backend from "../../assets/backend.jpg";
 import ingles from "../../assets/ingles.png";
 import bradesco from "../../assets/bradesco.jpg";
+import ia from "../../assets/ia.jpg";
 import breve from "../../assets/breve.jpg";
 
 export default function Qualifications() {
@@ -63,19 +64,19 @@ export default function Qualifications() {
           technologies={["java", "react", "Spring", "Postgresql"]}
         />
         <CardQualification
+        title="Produtividade na era da IA Generativa"
+        duration="02/2025 - 02/2025"
+        certificate={ia}
+        description="Curso de Qualificação Profissional, onde pude aprender o desenvolvimento de API's restful,
+         com foco em Spring Boot, Hibernate e JPA."
+        technologies={["java", "react", "Spring", "Postgresql"]}
+      />
+        <CardQualification
           title="Introdução a Qualidade de Software"
           duration="02/2025 - 02/2025"
           certificate={breve}
           description="O curso  aborda fundamentos da qualidade de software, Scrum, requisitos, lógica de programação,
            testes manuais e automatizados, metodologias ágeis e boas práticas."
-          technologies={["java", "react", "Spring", "Postgresql"]}
-        />
-        <CardQualification
-          title="Produtividade na era da IA Generativa"
-          duration="02/2025 - 02/2025"
-          certificate={breve}
-          description="Curso de Qualificação Profissional, onde pude aprender o desenvolvimento de API's restful,
-           com foco em Spring Boot, Hibernate e JPA."
           technologies={["java", "react", "Spring", "Postgresql"]}
         />
       </Certificates>
