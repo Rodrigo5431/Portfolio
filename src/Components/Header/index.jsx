@@ -58,14 +58,6 @@ export default function Header() {
         <Navigation>
           <ListNavigation>
             <Menu>
-            <ButtonCreateProject
-                  darkmode={darkmode ? "dark-mode" : "light-mode"}
-                  onClick={() => {
-                    navigate("/login");
-                  }}
-                >
-                  {language ? "Login" : "Login"}
-                </ButtonCreateProject>
               {token && (
                 <ButtonCreateProject
                   darkmode={darkmode ? "dark-mode" : "light-mode"}

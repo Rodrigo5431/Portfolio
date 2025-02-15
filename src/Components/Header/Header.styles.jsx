@@ -109,7 +109,7 @@ export const Menu = styled.div`
   align-items: center;
   transition: transform 0.3s ease-in-out;
 
-  @media (max-width: 800px) {
+  @media (max-width: 799px) {
     display: none;
   }
 `;
