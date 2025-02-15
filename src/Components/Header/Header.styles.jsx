@@ -5,19 +5,17 @@ export const Container = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 97%;
-  padding: 10px 20px;
+  width: 95%;
   transition: background-color 0.3s ease, color 0.3s ease;
-  @media (max-width: 500px) {
-    padding: 0;
-  }
+
+
 `;
 
 export const NavigationSection = styled.nav`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 100%;
+  width: 96%;
 `;
 export const ButtonCreateProject = styled.h1`
   display: flex;
@@ -36,11 +34,15 @@ export const Title = styled.h1`
   @media (max-width:1000px) {
     font-size: 2rem;
   }
+  @media (max-width:500px) {
+    font-size: 2.4rem;
+  }
 `;
 
 export const Navigation = styled.nav`
   display: flex;
   flex-direction: row;
+  margin-right: 10px;
 `;
 
 export const ListNavigation = styled.ul`
@@ -109,14 +111,15 @@ export const Menu = styled.div`
   align-items: center;
   transition: transform 0.3s ease-in-out;
 
-  @media (max-width: 799px) {
+  @media (max-width: 800px) {
     display: none;
   }
 `;
 
 export const MenuIcon = styled.div`
   display: none;
-  @media (max-width: 799px) {
+
+  @media (max-width: 800px) {
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -135,7 +138,7 @@ export const MenuBurguer = styled.div`
   align-items: center;
   justify-content: center;
   list-style: none;
-  width: 105%;
+  width: 96%;
   height: 200px;
   gap: 20px;
   transition: background-color 0.3s ease, color 0.3s ease;

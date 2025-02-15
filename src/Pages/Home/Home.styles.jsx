@@ -43,7 +43,7 @@ export const ImageMe = styled(motion.img)`
   width: 400px;
   height: 400px;
   border-radius: 50%;
-  margin-right: 150px;
+  margin-right: 100px;
 
 
   @media (max-width: 1400px) {
