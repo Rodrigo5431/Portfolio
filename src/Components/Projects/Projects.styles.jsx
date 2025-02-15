@@ -18,7 +18,7 @@ display: flex;
 text-align: center;
 justify-self: center;
 align-self: center;
-color: ${({ darkmode }) => (darkmode === "dark-mode" ? "#fff" : "black")};
+color: ${({ darkmode }) => (darkmode === "dark-mode" ? "#fff" : "#000")};
 font-size: 4rem;
 `
 export const ProjectList = styled.div`

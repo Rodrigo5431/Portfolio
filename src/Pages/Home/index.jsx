@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import rodrigo from "../../assets/rodrigo.jpg";
 import About from "../../Components/About";
 import Footer from "../../Components/Footer";
@@ -17,10 +17,12 @@ import {
   LinkDownload,
   Title,
 } from "./Home.styles";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const [language] = useContext(AuthContext);
   const { darkmode } = useDarkMode();
+
 
   return (
     <Container>

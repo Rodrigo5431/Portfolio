@@ -20,5 +20,6 @@ border-radius: 25px;
 
 export const TitleProject = styled.h1`
 font-size: 1rem;
-color: white;
+color: ${({ darkmode }) => (darkmode === "dark-mode" ? "#fff" : "#000")};
+
 `

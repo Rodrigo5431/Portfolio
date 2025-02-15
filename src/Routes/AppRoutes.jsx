@@ -6,7 +6,7 @@
   import ProjectDetails from "../Pages/ProjectDetails";
   import CreateProject from "../Pages/CreateProject";
   import Qualifications from "../Pages/Qualifications";
-import UpdateProject from "../Pages/UpdateProject";
+  import UpdateProject from "../Pages/UpdateProject";
 
   export default function AppRoutes() {
     return (
