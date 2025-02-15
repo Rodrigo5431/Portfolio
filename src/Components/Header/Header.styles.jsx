@@ -130,7 +130,7 @@ export const MenuIcon = styled.div`
 export const MenuLine = styled.div`
   width: 40px;
   height: 5px;
-  background-color: white;
+  background-color: ${({ darkmode }) => darkmode === "dark-mode" ? "#fff" : "#000"};
 `;
 export const MenuBurguer = styled.div`
   display: flex;

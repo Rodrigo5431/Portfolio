@@ -160,9 +160,9 @@ export default function Header() {
               )}
             </Menu>
             <MenuIcon onClick={() => setHamburguer(!hamburguer)}>
-              <MenuLine></MenuLine>
-              <MenuLine></MenuLine>
-              <MenuLine></MenuLine>
+              <MenuLine darkmode={darkmode ? "dark-mode" : "light-mode"}></MenuLine>
+              <MenuLine darkmode={darkmode ? "dark-mode" : "light-mode"}></MenuLine>
+              <MenuLine darkmode={darkmode ? "dark-mode" : "light-mode"}></MenuLine>
             </MenuIcon>
           </ListNavigation>
         </Navigation>
