@@ -111,7 +111,7 @@ export const Menu = styled.div`
   align-items: center;
   transition: transform 0.3s ease-in-out;
 
-  @media (max-width: 800px) {
+  @media (max-width: 820px) {
     display: none;
   }
 `;
@@ -119,7 +119,7 @@ export const Menu = styled.div`
 export const MenuIcon = styled.div`
   display: none;
 
-  @media (max-width: 800px) {
+  @media (max-width: 820px) {
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -143,7 +143,7 @@ export const MenuBurguer = styled.div`
   gap: 20px;
   transition: background-color 0.3s ease, color 0.3s ease;
 
-  @media (min-width: 800px) {
+  @media (min-width: 821px) {
     display: none;
   }
 `;

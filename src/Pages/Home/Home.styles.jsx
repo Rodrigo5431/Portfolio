@@ -64,6 +64,7 @@ export const ImageMe = styled(motion.img)`
 
 export const LinkDownload = styled.a`
   text-decoration: none;
+  height: 80px;
   @media (max-width: 800px) {
     display: flex;
     justify-content: center;
