@@ -18,11 +18,11 @@ import {
   Title,
 } from "./Home.styles";
 import { useNavigate } from "react-router-dom";
+import Contact from "../../Components/Contact";
 
 export default function Home() {
   const [language] = useContext(AuthContext);
   const { darkmode } = useDarkMode();
-
 
   return (
     <Container>
@@ -46,7 +46,7 @@ export default function Home() {
                 Programador Full Stack
                 <br />
                 <LinkDownload
-                  href="../../../public/archive/curriculo-RodrigoCarvalhoLima.pdf"
+                  href="/archive/curriculo-RodrigoCarvalhoLima.pdf"
                   download
                 >
                   <ButtonDownload
@@ -89,7 +89,7 @@ export default function Home() {
                 Carvalho Lima <br />
                 Full Stack Developer <br />
                 <LinkDownload
-                  href="../../../public/archive/curriculo-RodrigoCarvalhoLima.pdf"
+                  href="/archive/curriculo-RodrigoCarvalhoLima.pdf"
                   download
                 >
                   <ButtonDownload
@@ -100,7 +100,6 @@ export default function Home() {
                 </LinkDownload>
               </Title>
             </motion.div>
-
             <motion.div
               initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -138,6 +137,15 @@ export default function Home() {
         viewport={{ once: true }}
       >
         <About />
+      </motion.div>
+      <Line />
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+      >
+        <Contact />
       </motion.div>
       <Footer />
     </Container>
